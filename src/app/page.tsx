@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
       <div className="bg-white">
-        <main className="max-w-6xl mx-auto px-6 py-8">
+        <main className="w-full sm:max-w-6xl mx-auto px-4 sm:px-6 py-8">
           <Header />
           {/* HERO */}
           <section className="bg-[#0D1B2A] text-white py-14 px-6">
