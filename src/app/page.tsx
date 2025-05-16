@@ -1,4 +1,4 @@
-import Header from './_components/Header'
+import Header from './_components/Header';
 
 export default function Home() {
   return (
@@ -6,6 +6,7 @@ export default function Home() {
       <div className="bg-white">
         <main className="max-w-6xl mx-auto">
           <Header />
+
           {/* HERO */}
           <section className="bg-[#0D1B2A] text-white py-14 px-6">
             <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center text-center md:text-left">
@@ -34,6 +35,19 @@ export default function Home() {
               </div>
             </div>
           </section>
+
+          {/* À PROPOS */}
+          <section className="bg-white py-12 px-6 text-center">
+            <div className="max-w-6xl mx-auto">
+              <p className="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto">
+                Guillaume Chary intervient depuis 2020 en urgence pour vos besoins en <strong>plomberie</strong>, 
+                <strong> chauffagerie</strong> et <strong> serrurerie</strong>. Disponible 7j/7 à Metz et ses alentours, 
+                il propose un service de qualité, rapide et fiable pour particuliers comme professionnels. 
+                Une fuite, une porte bloquée ou un chauffe-eau en panne ? Il est là pour vous dépanner rapidement.
+              </p>
+            </div>
+          </section>
+
           {/* SERVICES */}
           <section className="bg-gray-100 py-12 px-6 text-center">
             <div className="max-w-6xl mx-auto">
@@ -57,6 +71,25 @@ export default function Home() {
             </div>
           </section>
 
+          {/* NOS RÉALISATIONS */}
+          <section className="bg-gray-100 py-12 px-6 text-center">
+            <div className="max-w-6xl mx-auto">
+              <h3 className="text-2xl font-bold text-blue-900 mb-6">NOS RÉALISATIONS</h3>
+              <div className="overflow-x-auto whitespace-nowrap scrollbar-hide">
+                <div className="inline-flex gap-4 px-2">
+                  {["/real1.jpg", "/real2.jpg", "/real3.jpg", "/real1.jpg"].map((src, index) => (
+                    <img
+                      key={index}
+                      src={src}
+                      alt={`Réalisation ${index + 1}`}
+                      className="h-64 w-auto rounded-lg shadow-md object-cover"
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* CONTACT */}
           <section className="bg-white py-12 px-6">
             <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
@@ -67,7 +100,7 @@ export default function Home() {
                   Appelez-nous ou envoyez un message.
                 </p>
               </div>
-              <div className="flex-1 rounded-lg overflow-hidden h-40">
+              <div className="flex-1 rounded-lg overflow-hidden h-40 w-full">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2570.2441708431233!2d6.170542115765141!3d49.11930887931427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479514cbb7ca4203%3A0x4048f48c6e10b10!2sMetz!5e0!3m2!1sfr!2sfr!4v1683578012345!5m2!1sfr!2sfr"
                   width="100%"
@@ -81,17 +114,25 @@ export default function Home() {
               </div>
             </div>
           </section>
-
         </main>
 
         {/* FOOTER */}
         <footer className="bg-[#0D1B2A] text-white py-4 px-6">
           <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center text-sm text-center gap-2 sm:gap-0">
-            <span>Website by mikaelvery</span>
-            <span>impasse des fleurs, Metz</span>
+            <span>
+              © 2020 Le Plombier de Metz / Tous droits réservés - Réalisation Mikaelvery développeur à Montpellier
+            </span>
+            <div className="flex gap-4">
+              <a href="https://www.instagram.com/m5.gui57" target="_blank" rel="noopener noreferrer">
+                <img src="/icons/instagram.png" alt="Instagram" className="w-5 h-5 hover:opacity-75 transition " />
+              </a>
+              <a href="https://www.facebook.com/guillaume.chary" target="_blank" rel="noopener noreferrer">
+                <img src="/icons/facebook.png" alt="Facebook" className="w-5 h-5" />
+              </a>
+            </div>
           </div>
         </footer>
       </div>
     </>
-  )
+  );
 }
