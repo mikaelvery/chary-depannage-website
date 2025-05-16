@@ -2,7 +2,7 @@ import { FaHome } from "react-icons/fa";
 
 export default function Header() {
   return (
-    <header className="bg-white w-full shadow">
+    <header className="bg-white w-full shadow sm:px-2">
       <div className="w-full sm:max-w-6xl mx-auto flex flex-wrap justify-between items-center px-4 py-4 md:px-6">
         {/* Logo + Nom */}
         <div className="flex items-center gap-3 mb-3 md:mb-0 flex-shrink-0">
