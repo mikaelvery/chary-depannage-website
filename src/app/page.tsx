@@ -67,11 +67,21 @@ export default function Home() {
                   Appelez-nous ou envoyez un message.
                 </p>
               </div>
-              <div className="flex-1 bg-gray-100 rounded-lg h-40 flex items-center justify-center text-blue-900 font-bold text-lg">
-                Metz
+              <div className="flex-1 rounded-lg overflow-hidden h-40">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2570.2441708431233!2d6.170542115765141!3d49.11930887931427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479514cbb7ca4203%3A0x4048f48c6e10b10!2sMetz!5e0!3m2!1sfr!2sfr!4v1683578012345!5m2!1sfr!2sfr"
+                  width="100%"
+                  height="160"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Carte de Metz"
+                ></iframe>
               </div>
             </div>
           </section>
+
         </main>
 
         {/* FOOTER */}
