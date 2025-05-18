@@ -244,11 +244,11 @@ export default function Home() {
         </main>
 
         <section className="bg-[#0D1B2A] text-white py-12 px-6">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 text-xs md:text-sm">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-64 text-xs md:text-sm">
             
             {/* Colonne 1 : Horaires */}
-            <div>
-              <h4 className="font-semibold text-lg mb-4 ">HORAIRES</h4>
+            <div className="md:ml-40">
+              <h4 className="font-semibold text-lg mb-4">HORAIRES</h4>
               <ul className="space-y-1">
                 {[
                   { jour: 'Lundi', horaire: '9h00 - 18h' },
