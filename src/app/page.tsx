@@ -1,5 +1,5 @@
 import Header from './_components/Header';
-import Star from './_components/stars';
+import Star from './_components/Stars';
 import CallButton from "./_components/CallButton";
 import { FaFire, FaTools, FaWater, FaKey } from 'react-icons/fa';
 
