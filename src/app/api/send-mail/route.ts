@@ -4,7 +4,7 @@ import nodemailer from "nodemailer";
 export async function POST(request: NextRequest) {
   try {
     const data = await request.json();
-
+    console.log("Données du formulaire reçues :", data);
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
