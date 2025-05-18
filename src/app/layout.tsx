@@ -1,5 +1,4 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,10 +11,22 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Charry Depannage",
-  description: "Societé de dépannage express sur Metz et alentours",
-};
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-montserrat',
+  display: 'swap',
+})
+
+export const metadata = {
+  metadataBase: new URL('https://guillaumechary.com'), 
+  title: 'Chary Depannage',
+  description: 'depannage multiservice sur metz et environ',
+  openGraph: {
+    images: '/plumber-working.png',
+  },
+}
+
 
 export default function RootLayout({
   children,
@@ -23,9 +34,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="fr" className="h-full">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} "font-sans h-full bg-background text-foreground" antialiased `}
+        className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} font-sans h-full bg-background text-foreground antialiased`}
       >
         {children}
       </body>
