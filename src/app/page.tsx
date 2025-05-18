@@ -1,6 +1,7 @@
 import Header from './_components/Header';
 import Star from './_components/stars';
 import CallButton from "./_components/CallButton";
+import { FaFire, FaTools, FaWater, FaKey } from 'react-icons/fa';
 
 export default function Home() {
   return (
@@ -60,17 +61,20 @@ export default function Home() {
           {/* SERVICES */}
           <section className="bg-gray-100 py-12 px-6 text-center">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-2xl font-bold text-blue-900 mb-10">NOS SERVICES</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+              <h2 className="text-3xl font-bold text-blue-900 mb-12">NOS SERVICES</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
                 {[
-                  { icon: "🔥", title: "Réparation de fuite" },
-                  { icon: "🧰", title: "Débouchage" },
-                  { icon: "💧", title: "Remplacement chauffe-eau" },
-                  { icon: "🔑", title: "Ouverture de porte" },
+                  { icon: <FaFire className="text-orange-500 text-5xl mx-auto mb-4" />, title: "Réparation de fuite" },
+                  { icon: <FaTools className="text-orange-500 text-5xl mx-auto mb-4" />, title: "Débouchage" },
+                  { icon: <FaWater className="text-orange-500 text-5xl mx-auto mb-4" />, title: "Remplacement chauffe-eau" },
+                  { icon: <FaKey className="text-orange-500 text-5xl mx-auto mb-4" />, title: "Ouverture de porte" },
                 ].map((service) => (
-                  <div key={service.title} className="bg-white rounded-xl p-6 shadow hover:shadow-md transition">
-                    <div className="text-orange-500 text-4xl mb-2">{service.icon}</div>
-                    <h4 className="text-blue-900 font-semibold">{service.title}</h4>
+                  <div
+                    key={service.title}
+                    className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  >
+                    {service.icon}
+                    <h4 className="text-blue-900 font-semibold text-lg">{service.title}</h4>
                   </div>
                 ))}
               </div>
@@ -113,8 +117,6 @@ export default function Home() {
             </div>
           </section>
 
-
-
           {/* CONTACT */}
           <section className="bg-white py-12 px-6">
             <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
@@ -125,17 +127,17 @@ export default function Home() {
                   Appelez-nous ou envoyez un message.
                 </p>
               </div>
-              <div className="flex-1 rounded-lg overflow-hidden h-40 w-full">
+              <div className="flex-1 rounded-lg overflow-hidden h-70 w-full">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2570.2441708431233!2d6.170542115765141!3d49.11930887931427"
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d50000!2d6.179067!3d49.121343!3m2!1i1024!2i768!4f10.0!3m3!1m2!1s0x47948cc7a53607d9%3A0x407f3528a4b1d80!2sMetz%2C%20France!5e0!3m2!1sfr!2sus!4v1688476249571!5m2!1sfr!2sus"
                   width="100%"
-                  height="160"
+                  height="350"
                   style={{ border: 0 }}
                   allowFullScreen={true}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Carte de Metz"
-                ></iframe>
+                />
               </div>
             </div>
           </section>
