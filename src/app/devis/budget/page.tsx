@@ -2,9 +2,18 @@
 
 import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useDevis } from '../../../context/DevisContext';
+import { useState } from 'react';
 
 export default function Step5() {
+  const { data, updateData } = useDevis();
   const router = useRouter();
+  const [budget, setBudget] = useState(data.budget || '');
+
+  const handleNext = () => {
+    updateData({ budget });
+    router.push('/devis/localisation');
+  };
 
   return (
     <main className="flex flex-col justify-center min-h-screen gap-6 px-4 max-w-4xl mx-auto">
@@ -26,13 +35,15 @@ export default function Step5() {
           className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
           min={0}
           step={100}
+          value={budget}
+          onChange={(e) => setBudget(e.target.value)}
         />
       </label>
 
       <div className="flex items-center gap-4 self-start mt-4">
         <button
           className="text-sm px-4 py-2 rounded bg-[#E6F4EA] text-[#3A7C4A] hover:bg-[#D0ECD8] transition"
-          onClick={() => router.push('/devis/localisation')}
+          onClick={handleNext}
         >
           Suivant
         </button>

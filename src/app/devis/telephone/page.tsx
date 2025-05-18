@@ -1,14 +1,29 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useDevis } from "../../../context/DevisContext";
 
 export default function Step9() {
   const router = useRouter();
-  const [phone, setPhone] = useState("");
+  const { data, updateData } = useDevis();
+  const [phone, setPhone] = useState(data.telephone || "");
+
+  // Sync local phone state with context data on mount
+  useEffect(() => {
+    setPhone(data.telephone || "");
+  }, [data.telephone]);
+
+  // Update context each time phone changes
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setPhone(value);
+    updateData({ telephone: value });
+  };
 
   const handlePass = () => {
+    // Tu peux ajouter une validation ici si besoin
     router.push("/devis/validation");
   };
 
@@ -24,7 +39,7 @@ export default function Step9() {
         type="tel"
         placeholder="Tapez votre réponse ici"
         value={phone}
-        onChange={(e) => setPhone(e.target.value)}
+        onChange={handleChange}
         className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 max-w-xl w-full"
       />
 

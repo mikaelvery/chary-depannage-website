@@ -2,13 +2,16 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useDevis } from "../../../context/DevisContext";
 
 export default function Step10() {
   const router = useRouter();
+  const { updateData } = useDevis();
   const [accepted, setAccepted] = useState(false);
 
   const handleAccept = () => {
     setAccepted(true);
+    updateData({ accepted: true }); 
   };
 
   const handleDecline = () => {

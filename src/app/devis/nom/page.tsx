@@ -3,11 +3,14 @@
 import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useDevis } from "../../../context/DevisContext"; 
 
 export default function Step7() {
   const router = useRouter();
-  const [prenom, setPrenom] = useState("");
-  const [nom, setNom] = useState("");
+  const { data, updateData } = useDevis(); 
+
+  const [prenom, setPrenom] = useState(data.prenom || "");
+  const [nom, setNom] = useState(data.nom || "");
   const [isValid, setIsValid] = useState(false);
 
   useEffect(() => {
@@ -16,6 +19,7 @@ export default function Step7() {
 
   const handleSubmit = () => {
     if (isValid) {
+      updateData({ prenom, nom }); 
       router.push("/devis/email");
     }
   };

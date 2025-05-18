@@ -1,8 +1,13 @@
+'use client';
+
 import Image from "next/image";
 import CardOption from "app/_components/CardOption";
 import { ArrowRight } from "lucide-react";
+import { useDevis } from "../../../context/DevisContext";
 
 export default function Step2() {
+  const { updateData } = useDevis();
+
   const options = [
     { title: "Portes", img: "/icons/door.png" },
     { title: "Serrurerie", img: "/icons/lock.png" },
@@ -23,7 +28,8 @@ export default function Step2() {
           <CardOption
             key={option.title}
             title={option.title}
-            href="/devis/delai" // 🔁 Redirige vers page 3
+            href="/devis/delai"
+            onClick={() => updateData({ typeProjet: option.title })}
             icon={
               <Image
                 src={option.img}
