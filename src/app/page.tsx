@@ -2,6 +2,7 @@ import Header from './_components/Header';
 import Star from './_components/Stars';
 import CallButton from "./_components/CallButton";
 import { FaFire, FaTools, FaWater, FaKey } from 'react-icons/fa';
+import MultiStepForm from "./_components/MultiStepForm";
 
 export default function Home() {
   return (
@@ -89,7 +90,7 @@ export default function Home() {
                   <img
                     key={i}
                     src={src}
-                    alt={`Réalisation ${i + 1}`}
+                    alt={`Réalisation G&G Intervention ${i + 1}`}
                     className="w-full h-56 rounded-lg shadow-md object-cover"
                   />
                 ))}
