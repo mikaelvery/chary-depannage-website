@@ -63,7 +63,7 @@ export default function Step9() {
           Passer
         </button>
 
-        <p className="text-sm text-gray-500">Appuyer Entrer ↵</p>
+        <p className="text-sm text-gray-500">Appuyez sur Entrée pour valider ↵</p>
       </div>
     </main>
   );

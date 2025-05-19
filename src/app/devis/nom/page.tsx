@@ -54,15 +54,16 @@ export default function Step7() {
       </div>
 
       {isValid && (
-        <button
-          className="mt-4 px-6 py-2 rounded bg-[#E6F4EA] text-[#3A7C4A] hover:bg-[#D0ECD8] transition self-start"
-          onClick={handleSubmit}
-        >
-          Ok
-        </button>
+        <div className="mt-4 flex items-center gap-4 self-start">
+          <button
+            className="px-6 py-2 rounded bg-[#E6F4EA] text-[#3A7C4A] hover:bg-[#D0ECD8] transition"
+            onClick={handleSubmit}
+          >
+            Ok
+          </button>
+          <p className="text-sm text-gray-500">Appuyez sur Entrée pour valider ↵</p>
+        </div>
       )}
-
-      <p className="text-sm text-gray-500 self-start mt-2">Appuyer Entrer ↵</p>
     </main>
   );
 }
