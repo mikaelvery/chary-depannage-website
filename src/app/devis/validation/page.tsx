@@ -6,16 +6,45 @@ import { useDevis } from "../../../context/DevisContext";
 
 export default function Step10() {
   const router = useRouter();
-  const { updateData } = useDevis();
+  const { data, updateData } = useDevis();
   const [accepted, setAccepted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleAccept = () => {
-    setAccepted(true);
-    updateData({ accepted: true }); 
+  const handleAccept = async () => {
+    setError("");
+    setIsSubmitting(true);
+
+    try {
+      // Met à jour data avec accepted = true avant l’envoi
+      updateData({ accepted: true });
+
+      // Envoi à l’API
+      const response = await fetch("/api/send-mail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...data, accepted: true }), // Assure-toi d’envoyer accepted: true aussi
+      });
+
+      if (!response.ok) {
+        throw new Error("Erreur lors de l'envoi du mail");
+      }
+
+      setAccepted(true);
+    } catch (err) {
+      if (err instanceof Error) {
+        setError(err.message);
+        console.error(err.message);
+      } else {
+        setError("Erreur inconnue");
+        console.error("Erreur inconnue", err);
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleDecline = () => {
-    setAccepted(false);
     alert("Vous devez accepter pour continuer.");
   };
 
@@ -33,20 +62,32 @@ export default function Step10() {
       <div className="flex gap-4 mt-6">
         <button
           onClick={handleAccept}
-          className="px-6 py-2 rounded bg-[#E6F4EA] text-[#3A7C4A] hover:bg-[#D0ECD8] transition"
+          disabled={isSubmitting || accepted}
+          className={`px-6 py-2 rounded ${
+            isSubmitting || accepted
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-[#E6F4EA] text-[#3A7C4A] hover:bg-[#D0ECD8]"
+          } transition`}
         >
           J&apos;accepte
         </button>
 
         <button
           onClick={handleDecline}
-          className="px-6 py-2 rounded bg-[#D98C8C] text-white hover:bg-[#C07272] transition"
+          disabled={isSubmitting || accepted}
+          className={`px-6 py-2 rounded ${
+            isSubmitting || accepted
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-[#D98C8C] text-white hover:bg-[#C07272]"
+          } transition`}
         >
           Je n&apos;accepte pas
         </button>
       </div>
 
-      {accepted && (
+      {error && <p className="mt-4 text-red-600 font-semibold">{error}</p>}
+
+      {accepted && !error && (
         <>
           <p className="mt-4 text-[#3A7C4A] font-semibold">
             Merci pour votre validation.
