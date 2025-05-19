@@ -8,7 +8,6 @@ export interface DevisData {
   urgence: string;
   description: string;
   budget: string;
-  localisation: string;
   ville?: string;
   codePostal?: string;
   prenom: string;
@@ -29,7 +28,6 @@ const defaultData: DevisData = {
   urgence: "",
   description: "",
   budget: "",
-  localisation: "",
   ville: "",
   codePostal: "",
   prenom: "",

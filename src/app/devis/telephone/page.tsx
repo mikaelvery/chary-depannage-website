@@ -9,10 +9,16 @@ export default function Step9() {
   const router = useRouter();
   const { data, updateData } = useDevis();
   const [phone, setPhone] = useState(data.telephone || "");
+  const [isValid, setIsValid] = useState(false);
 
   useEffect(() => {
     setPhone(data.telephone || "");
   }, [data.telephone]);
+
+  useEffect(() => {
+    const phoneRegex = /^0\d{9}$/;
+    setIsValid(phoneRegex.test(phone));
+  }, [phone]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -20,7 +26,7 @@ export default function Step9() {
     updateData({ telephone: value });
   };
 
-  const handlePass = () => {
+  const handleNext = () => {
     router.push("/devis/validation");
   };
 
@@ -41,12 +47,22 @@ export default function Step9() {
       />
 
       <div className="flex items-center gap-4 self-start">
+        {isValid && (
+          <button
+            className="text-sm px-4 py-2 rounded bg-[#E6F4EA] text-[#3A7C4A] hover:bg-[#D0ECD8] transition"
+            onClick={handleNext}
+          >
+            Ok
+          </button>
+        )}
+
         <button
-          className="text-sm px-4 py-2 rounded bg-[#E6F4EA] text-[#3A7C4A] hover:bg-[#D0ECD8] transition"
-          onClick={handlePass}
+          className="text-sm px-4 py-2 rounded bg-gray-200 text-gray-700 hover:bg-gray-300 transition"
+          onClick={handleNext}
         >
           Passer
         </button>
+
         <p className="text-sm text-gray-500">Appuyer Entrer ↵</p>
       </div>
     </main>

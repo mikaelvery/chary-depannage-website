@@ -25,7 +25,6 @@ const steps = [
     "Urgence",
     "Details projet",
     "Budget",
-    "Localisation",
     "Nom",
     "Email",
     "Telephone",

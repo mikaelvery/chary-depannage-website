@@ -22,10 +22,10 @@ const montserrat = Montserrat({
 
 export const metadata = {
   metadataBase: new URL('https://guillaumechary.com'),
-  title: 'Chary Depannage',
+  title: 'G&G Intervention',
   description: 'depannage multiservice sur metz et environ',
   openGraph: {
-    images: '/plumber-working.png',
+    images: '/logo-gg.png',
   },
 };
 
@@ -36,6 +36,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className="h-full scroll-smooth">
+      <head>
+        <link rel="icon" href="/logo-gg.png" type="image/png" />
+        <title>G&G Intervention</title>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} font-sans h-full bg-background text-foreground antialiased`}
       >
@@ -46,3 +50,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+
