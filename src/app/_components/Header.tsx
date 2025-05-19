@@ -21,14 +21,15 @@ export default function Header() {
         </div>
 
         {/* Bouton "Obtenir un devis" */}
-        <div className="flex items-center gap-2 sm:gap-4 whitespace-nowrap">
+        <div className="flex items-center gap-2 sm:gap-4 whitespace-nowrap pt-5">
           <Link
             href="../devis"
-            className="bg-orange-500 text-white font-semibold px-3 py-1.5 sm:px-4 sm:py-2 rounded hover:bg-orange-600 transition text-xs sm:text-sm"
+            className="bg-orange-500 text-white font-semibold px-2 py-1 sm:px-4 sm:py-2 rounded hover:bg-orange-600 transition text-[10px] sm:text-sm"
           >
             Obtenir un devis
           </Link>
         </div>
+
       </div>
     </header>
   );
