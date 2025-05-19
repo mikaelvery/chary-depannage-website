@@ -1,8 +1,6 @@
 import Header from './_components/Header';
 import Star from './_components/Stars';
 import CallButton from "./_components/CallButton";
-import { FaFire, FaTools, FaWater, FaKey } from 'react-icons/fa';
-import MultiStepForm from "./_components/MultiStepForm";
 
 export default function Home() {
   return (
@@ -11,36 +9,37 @@ export default function Home() {
         <main className="max-w-6xl mx-auto">
           <Header />
 
-          {/* HERO */}
-          <section className="bg-[#0D1B2A] text-white py-14 px-6">
-            <div className="flex flex-col md:flex-row gap-12 items-center text-center md:text-left">
-              <div className="flex-1">
-                <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
+          <section className="bg-[#0D1B2A] text-white py-14 px-6 relative overflow-hidden">
+            <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center text-center md:text-left">
+              {/* Texte */}
+              <div className="flex-1 z-10">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4">
                   INTERVENTION RAPIDE À METZ <br /> ET SES ALENTOURS
                 </h1>
-                <p className="text-lg mb-6 max-w-md mx-auto md:mx-0 leading-relaxed">
+                <p className="text-base sm:text-lg mb-6 max-w-md mx-auto md:mx-0 leading-relaxed">
                   Réparation de fuite, débouchage, chauffage, serrurerie et autres services d'urgence.
                 </p>
-                <div className="flex justify-center md:justify-start gap-4">
-                  <button className="bg-orange-500 text-white font-semibold px-6 py-3 rounded hover:bg-orange-600 transition text-lg">
+                <div className="flex justify-center md:justify-start gap-3 sm:gap-4">
+                  <button className="bg-orange-500 text-white font-semibold px-4 py-2 sm:px-6 sm:py-3 rounded hover:bg-orange-600 transition text-sm sm:text-base">
                     DÉCOUVRIR NOS SERVICES
                   </button>
                   <CallButton />
                 </div>
-
               </div>
-              <div className="flex-1 flex items-center justify-center">
+
+              {/* Image */}
+              <div className="flex-1 flex items-end justify-center -mb-22 z-0">
                 <img
                   src="/plumber-working.png"
                   alt="Plombier en action"
-                  className="h-full max-h-[700px] w-auto object-contain"
+                  className="h-auto max-h-[320px] sm:max-h-[420px] md:max-h-[460px] w-auto object-contain mx-auto"
                 />
               </div>
             </div>
           </section>
 
           {/* À PROPOS */}
-          <section className="py-12 px-6 text-center">
+          <section className="bg-gray-100 py-12 px-6 text-center">
             <div className="max-w-4xl mx-auto">
               <h5 className="text-black text-[12px] font-medium tracking-widest leading-[1.33em] uppercase mb-3">
                 Chary Depannage • Metz • depuis 2025
@@ -51,7 +50,7 @@ export default function Home() {
               <p className="text-lg leading-relaxed text-gray-700 max-w-3xl mx-auto">
                 Guillaume Chary intervient depuis 2020 pour vos urgences de{" "}
                 <strong>plomberie</strong>, <strong>chauffagerie</strong> et{" "}
-                <strong>serrurerie</strong> à Metz et dans les environs. Disponible 7j/7,
+                <strong>serrurerie</strong> à Metz et dans les environs. Disponible 5j/7,
                 il garantit un service rapide, fiable et de qualité, pour les particuliers
                 comme les professionnels.
               </p>
@@ -60,22 +59,40 @@ export default function Home() {
           </section>
 
           {/* SERVICES */}
-          <section className="bg-gray-100 py-12 px-6 text-center">
+          <section className="bg-white py-12 px-4 sm:px-6 text-center">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl font-bold text-blue-900 mb-12">NOS SERVICES</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+              <h2 className="text-3xl font-bold text-blue-900 mb-8 sm:mb-12">NOS SERVICES</h2>
+              
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
                 {[
-                  { icon: <FaFire className="text-orange-500 text-5xl mx-auto mb-4" />, title: "Réparation de fuite" },
-                  { icon: <FaTools className="text-orange-500 text-5xl mx-auto mb-4" />, title: "Débouchage" },
-                  { icon: <FaWater className="text-orange-500 text-5xl mx-auto mb-4" />, title: "Remplacement chauffe-eau" },
-                  { icon: <FaKey className="text-orange-500 text-5xl mx-auto mb-4" />, title: "Ouverture de porte" },
+                  {
+                    iconSrc: "/leak.png",
+                    title: "Réparation de fuite",
+                  },
+                  {
+                    iconSrc: "/cleaning.png",
+                    title: "Débouchage",
+                  },
+                  {
+                    iconSrc: "/water-heater.png",
+                    title: "Remplacement chauffe-eau",
+                  },
+                  {
+                    iconSrc: "/icons/door.png",
+                    title: "Ouverture de porte",
+                  },
                 ].map((service) => (
                   <div
                     key={service.title}
-                    className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                    className="bg-[#F9FAFB] border border-gray-200 rounded-2xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300"
                   >
-                    {service.icon}
-                    <h4 className="text-blue-900 font-semibold text-lg">{service.title}</h4>
+                    <img
+                      src={service.iconSrc}
+                      alt={service.title}
+                      className="mx-auto mb-4 h-16 w-16 sm:h-20 sm:w-20 object-contain"
+style={{ filter: "invert(49%) sepia(94%) saturate(3707%) hue-rotate(10deg) brightness(95%) contrast(90%)" }}
+                    />
+                    <h4 className="text-blue-900 font-semibold text-base sm:text-lg">{service.title}</h4>
                   </div>
                 ))}
               </div>
