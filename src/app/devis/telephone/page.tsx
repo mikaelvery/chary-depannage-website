@@ -10,12 +10,10 @@ export default function Step9() {
   const { data, updateData } = useDevis();
   const [phone, setPhone] = useState(data.telephone || "");
 
-  // Sync local phone state with context data on mount
   useEffect(() => {
     setPhone(data.telephone || "");
   }, [data.telephone]);
 
-  // Update context each time phone changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setPhone(value);
@@ -23,7 +21,6 @@ export default function Step9() {
   };
 
   const handlePass = () => {
-    // Tu peux ajouter une validation ici si besoin
     router.push("/devis/validation");
   };
 
