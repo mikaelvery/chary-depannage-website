@@ -10,6 +10,7 @@ import {
   Contact,
   AvisGoogle
 } from './_components';
+import ScrollToTop from './_components/ScrollToTop';
 
 
 export default function Home() {
@@ -29,8 +30,9 @@ export default function Home() {
           <Contact />  
           <AvisGoogle />        
         </main>
-        <CompanyDetails />      
-        <Footer />
+          <CompanyDetails />      
+          <Footer />
+          <ScrollToTop />
       </div>
     </>
   );
