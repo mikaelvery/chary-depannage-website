@@ -23,9 +23,22 @@ const montserrat = Montserrat({
 export const metadata = {
   metadataBase: new URL('https://guillaumechary.com'),
   title: 'G&G Intervention',
-  description: 'depannage multiservice sur metz et environ',
+  description: 'Dépannage multiservices à Metz : plomberie, chauffage, serrurerie, etc.',
   openGraph: {
-    images: '/logo-gg.png',
+    title: 'G&G Intervention',
+    description: 'Intervention rapide à Metz et ses alentours pour tous vos dépannages.',
+    url: 'https://guillaumechary.com',
+    siteName: 'G&G Intervention',
+    images: [
+      {
+        url: '/logo-gg.png',
+        width: 800,
+        height: 600,
+        alt: 'Logo G&G Intervention',
+      },
+    ],
+    locale: 'fr_FR',
+    type: 'website',
   },
 };
 
