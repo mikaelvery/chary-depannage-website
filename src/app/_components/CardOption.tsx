@@ -5,7 +5,7 @@ interface CardOptionProps {
   title: string;
   icon?: React.ReactNode;
   href?: string;
-  onClick?: () => void; // ✅ Ajoute ça
+  onClick?: () => void; 
 }
 
 export default function CardOption({ title, icon, href, onClick }: CardOptionProps) {

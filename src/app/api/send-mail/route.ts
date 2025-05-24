@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    // Mail artisan (déjà fait)
+    // Mail artisan 
     const mailOptionsArtisan = {
       from: process.env.EMAIL_USER,
       to: process.env.ARTISAN_EMAIL,
@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
     // Mail confirmation client
     const mailOptionsClient = {
       from: process.env.EMAIL_USER,
-      to: data.email,  // envoie au client
+      to: data.email,
       subject: "Confirmation de votre demande de devis - G & G INTERVENTION",
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f9f9f9; color: #333;">

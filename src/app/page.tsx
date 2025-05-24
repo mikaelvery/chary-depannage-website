@@ -11,7 +11,6 @@ export default function Home() {
 
           <section className="bg-[#0D1B2A] text-white py-14 px-6 relative overflow-hidden">
             <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center text-center md:text-left">
-              {/* Texte */}
               <div className="flex-1 z-10">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4">
                   INTERVENTION RAPIDE À METZ <br /> ET SES ALENTOURS
@@ -90,7 +89,7 @@ export default function Home() {
                       src={service.iconSrc}
                       alt={service.title}
                       className="mx-auto mb-4 h-16 w-16 sm:h-20 sm:w-20 object-contain"
-style={{ filter: "invert(49%) sepia(94%) saturate(3707%) hue-rotate(10deg) brightness(95%) contrast(90%)" }}
+                      style={{ filter: "invert(49%) sepia(94%) saturate(3707%) hue-rotate(10deg) brightness(95%) contrast(90%)" }}
                     />
                     <h4 className="text-blue-900 font-semibold text-base sm:text-lg">{service.title}</h4>
                   </div>
@@ -101,7 +100,6 @@ style={{ filter: "invert(49%) sepia(94%) saturate(3707%) hue-rotate(10deg) brigh
 
           <section className="bg-gray-100 py-16 px-6">
             <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
-              {/* Images - un peu plus petites sur mobile avec px, sm:grid-cols-2 */}
               <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4 px-2 sm:px-0">
                 {["/real1.jpg", "/real2.jpg", "/real3.jpg", "/real1.jpg"].map((src, i) => (
                   <img
@@ -122,7 +120,6 @@ style={{ filter: "invert(49%) sepia(94%) saturate(3707%) hue-rotate(10deg) brigh
                   Promotions, actualités et réalisations à suivre sur nos comptes.
                 </p>
                 
-                {/* Icônes sur mobile alignées à gauche (remove justify-center) */}
                 <div className="flex flex-col gap-4 md:flex-row md:gap-6">
                   <a href="https://www.facebook.com/guillaume.chary" target="_blank" rel="noopener noreferrer" className="flex justify-start">
                     <img src="/icons/facebook.svg" alt="Facebook" className="w-16 h-16" />

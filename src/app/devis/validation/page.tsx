@@ -16,14 +16,13 @@ export default function Step10() {
     setIsSubmitting(true);
 
     try {
-      // Met à jour data avec accepted = true avant l’envoi
       updateData({ accepted: true });
 
       // Envoi à l’API
       const response = await fetch("/api/send-mail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, accepted: true }), // Assure-toi d’envoyer accepted: true aussi
+        body: JSON.stringify({ ...data, accepted: true }), 
       });
 
       if (!response.ok) {
