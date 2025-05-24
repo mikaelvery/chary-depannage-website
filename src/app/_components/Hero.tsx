@@ -7,13 +7,15 @@ export default function Hero() {
             <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center text-center md:text-left">
               <div className="flex-1 z-10">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4">
-                  INTERVENTION RAPIDE À METZ <br /> ET SES ALENTOURS
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C27803] to-[#f8b400]">
+                    INTERVENTION RAPIDE
+                  </span><br /> À METZ ET SES ALENTOURS
                 </h1>
                 <p className="text-base sm:text-lg mb-6 max-w-md mx-auto md:mx-0 leading-relaxed">
                   Réparation de fuite, débouchage, chauffage, serrurerie et autres services d'urgence.
                 </p>
-                <div className="flex justify-center md:justify-start gap-3 sm:gap-4">
-                  <button className="bg-orange-500 text-white font-semibold px-4 py-2 sm:px-6 sm:py-3 rounded hover:bg-orange-600 transition text-sm sm:text-base">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                  <button className="bg-[#C27803] hover:bg-[#f8b400] text-white font-semibold px-6 py-3 rounded-full text-base shadow-lg transition">
                     DÉCOUVRIR NOS SERVICES
                   </button>
                   <CallButton />

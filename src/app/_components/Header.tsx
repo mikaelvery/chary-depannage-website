@@ -1,10 +1,13 @@
 import Link from "next/link";
+import { Home } from "lucide-react";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md transition-shadow duration-300">
+    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md transition-shadow duration-300">
       <div className="w-full sm:max-w-6xl mx-auto flex justify-between items-center px-4 py-2 md:py-4 md:px-6">
-        <div className="flex items-center gap-2 flex-shrink-0">
+        
+        {/* Logo + Nom de la société */}
+        <Link href="/" className="flex items-center gap-2 flex-shrink-0 hover:opacity-90 transition">
           <img
             src="/logo-gg.png"
             alt="Logo G & G société"
@@ -18,18 +21,17 @@ export default function Header() {
               POSE • REPARE • DEPANNE 
             </p>
           </div>
-        </div>
+        </Link>
 
-        {/* Bouton "Obtenir un devis" */}
+        {/* Bouton Obtenir un devis */}
         <div className="flex items-center gap-2 sm:gap-4 whitespace-nowrap pt-5">
           <Link
-            href="../devis"
-            className="bg-orange-500 text-white font-semibold px-2 py-1 sm:px-4 sm:py-2 rounded hover:bg-orange-600 transition text-[10px] sm:text-sm"
+            href="/devis"
+            className="flex items-center gap-2 border-2 border-orange-500 text-orange-500 font-medium px-3 py-1.5 sm:px-4 sm:py-2 rounded-full hover:bg-orange-500 hover:text-white transition text-xs sm:text-sm"
           >
-            Obtenir un devis
+            <span>Obtenir un devis</span>
           </Link>
         </div>
-
       </div>
     </header>
   );
