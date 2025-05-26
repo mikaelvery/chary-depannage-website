@@ -9,7 +9,7 @@ export default function ClientAOS({ children }: { children: React.ReactNode }) {
     AOS.init({
       duration: 800,
       once: true,
-      offset: window.innerWidth > 768 ? 120 : 300, // offset plus petit sur PC, plus grand sur mobile
+      offset: window.innerWidth > 768 ? 120 : 150, 
     });
   }, []);
 
