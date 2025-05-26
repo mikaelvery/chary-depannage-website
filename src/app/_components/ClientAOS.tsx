@@ -7,9 +7,10 @@ import "aos/dist/aos.css";
 export default function ClientAOS({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     AOS.init({
-      duration: 800,
+      duration: 600, 
+      easing: "ease-out", 
       once: true,
-      offset: window.innerWidth > 768 ? 150 : 220, // offset plus petit sur PC, plus grand sur mobile
+      offset: window.innerWidth > 768 ? 120 : 70, 
     });
   }, []);
 

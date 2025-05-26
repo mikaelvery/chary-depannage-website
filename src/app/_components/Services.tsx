@@ -22,12 +22,24 @@ export default function Services() {
     <section
       id="services"
       className="bg-white/80 py-16 px-4 sm:px-6 text-center"
+      data-aos="fade-up"
+      data-aos-duration="600"
+      data-aos-anchor-placement="top-bottom"
     >
       <div className="max-w-6xl mx-auto">
-        <p className="text-sm text-[#C27803] uppercase tracking-widest font-medium mb-2">
+        <p
+          data-aos="fade-down"
+          data-aos-delay="100"
+          className="text-sm text-[#C27803] uppercase tracking-widest font-medium mb-2"
+        >
           G&G INTERVENTION
         </p>
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-10">
+
+        <h2
+          data-aos="zoom-in"
+          data-aos-delay="250"
+          className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-10"
+        >
           Nos services
         </h2>
 
@@ -35,8 +47,8 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              data-aos="slide-right"
-              data-aos-delay={index * 150}
+              data-aos="zoom-in-up"
+              data-aos-delay={400 + index * 150}
               className="bg-[#F9FAFB] rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300"
             >
               <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-[#bd9f6e] flex items-center justify-center shadow-inner">
