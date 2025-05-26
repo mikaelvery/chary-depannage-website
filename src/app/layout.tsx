@@ -2,6 +2,7 @@ import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "./_components/LenisProvider";
 import { DevisProvider } from "../context/DevisContext";
+import ClientAOS from "./_components/ClientAOS";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,31 +15,31 @@ const geistMono = Geist_Mono({
 });
 
 const montserrat = Montserrat({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-montserrat',
-  display: 'swap',
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-montserrat",
+  display: "swap",
 });
 
 export const metadata = {
-  metadataBase: new URL('https://guillaumechary.com'),
-  title: 'G&G Intervention',
-  description: 'Dépannage multiservices à Metz : plomberie, chauffage, serrurerie, etc.',
+  metadataBase: new URL("https://guillaumechary.com"),
+  title: "G&G Intervention",
+  description: "Dépannage multiservices à Metz : plomberie, chauffage, serrurerie, etc.",
   openGraph: {
-    title: 'G&G Intervention',
-    description: 'Intervention rapide à Metz et ses alentours pour tous vos dépannages.',
-    url: 'https://guillaumechary.com',
-    siteName: 'G&G Intervention',
+    title: "G&G Intervention",
+    description: "Intervention rapide à Metz et ses alentours pour tous vos dépannages.",
+    url: "https://guillaumechary.com",
+    siteName: "G&G Intervention",
     images: [
       {
-        url: '/logo-gg.png',
+        url: "/logo-gg.png",
         width: 800,
         height: 600,
-        alt: 'Logo G&G Intervention',
+        alt: "Logo G&G Intervention",
       },
     ],
-    locale: 'fr_FR',
-    type: 'website',
+    locale: "fr_FR",
+    type: "website",
   },
 };
 
@@ -57,11 +58,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} font-sans h-full bg-background text-foreground antialiased`}
       >
         <DevisProvider>
-          <LenisProvider>{children}</LenisProvider>
+          <LenisProvider>
+            <ClientAOS>{children}</ClientAOS>
+          </LenisProvider>
         </DevisProvider>
       </body>
     </html>
   );
 }
-
-

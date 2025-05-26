@@ -1,48 +1,82 @@
+"use client";
+
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 export default function CompanyDetails() {
+  useEffect(() => {
+    AOS.init({ once: true, duration: 700, easing: 'ease-in-out' });
+  }, []);
+
+  const horaires = [
+    { jour: "Lundi", horaire: "9h00 - 18h" },
+    { jour: "Mardi", horaire: "9h00 - 18h" },
+    { jour: "Mercredi", horaire: "9h00 - 18h" },
+    { jour: "Jeudi", horaire: "9h00 - 18h" },
+    { jour: "Vendredi", horaire: "9h00 - 18h" },
+    { jour: "Samedi", horaire: "Fermé" },
+    { jour: "Dimanche", horaire: "Fermé" },
+  ];
+
+  const pratiques = [
+    { label: "Confidentialité", href: "#" },
+    { label: "Mentions légales", href: "#" },
+    { label: "C.G.V.", href: "#" },
+    { label: "Contact", href: "#contact" },
+  ];
+
   return (
-    <section className="bg-gradient-to-b from-[#0a1525] to-[#0d1b2a] text-white py-14 px-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-74 text-xs md:text-sm relative">
+    <section
+      className="bg-gradient-to-b from-[#0a1525] to-[#0d1b2a] text-white py-14 px-6 sm:px-12"
+      data-aos="fade-up"
+    >
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 relative">
 
         {/* Colonne 1 : Horaires */}
-        <div className="md:ml-40 relative z-10">
-          <h4 className="font-semibold text-lg mb-5 tracking-wide">HORAIRES</h4>
-          <ul className="space-y-2">
-            {[
-              { jour: 'Lundi', horaire: '9h00 - 18h' },
-              { jour: 'Mardi', horaire: '9h00 - 18h' },
-              { jour: 'Mercredi', horaire: '9h00 - 18h' },
-              { jour: 'Jeudi', horaire: '9h00 - 18h' },
-              { jour: 'Vendredi', horaire: '9h00 - 18h' },
-              { jour: 'Samedi', horaire: 'Fermé' },
-              { jour: 'Dimanche', horaire: 'Fermé' }
-            ].map(({ jour, horaire }) => (
-              <li key={jour} className="flex justify-between border-b border-gray-700 pb-1">
+        <div data-aos="fade-right" className="md:ml-40 relative z-10">
+          <h4 className="text-[#bd9f6e] font-bold text-xl mb-6 tracking-wide border-b border-[#bd9f6e] pb-2">
+            HORAIRES
+          </h4>
+          <ul>
+            {horaires.map(({ jour, horaire }, index) => (
+              <li
+                key={jour}
+                className="flex justify-between border-b border-gray-700 py-2 last:border-0 opacity-0 animate-fade-slide-in"
+                style={{ animationDelay: `${index * 120}ms`, animationFillMode: "forwards" }}
+              >
                 <span className="font-medium">{jour} :</span>
-                <span className="text-gray-400">{horaire}</span>
+                <span className="text-white">{horaire}</span>
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Séparateur vertical visible sur desktop */}
-        <div className="hidden md:block absolute top-10 bottom-10 left-1/2 border-l border-gray-700 opacity-50"></div>
+        {/* Séparateur vertical animé */}
+        <div
+          className="hidden md:block absolute top-10 bottom-10 left-1/2 border-l border-gray-700 opacity-50"
+          data-aos="fade"
+          data-aos-duration="1200"
+          data-aos-delay="500"
+        ></div>
 
         {/* Colonne 2 : En pratique + Nous suivre */}
-        <div className="flex flex-col gap-8 relative z-10 md:mr-40">
+        <div data-aos="fade-left" className="flex flex-col gap-10 relative z-10 md:mr-40">
           {/* En pratique */}
           <div>
-            <h4 className="font-semibold text-lg mb-5 tracking-wide">EN PRATIQUE</h4>
-            <ul className="space-y-2">
-              {[
-                { label: 'Confidentialité', href: '#' },
-                { label: 'Mentions légales', href: '#' },
-                { label: 'C.G.V.', href: '#' },
-                { label: 'Contact', href: '#contact' }
-              ].map(({ label, href }) => (
-                <li key={label}>
+            <h4 className="text-[#bd9f6e] font-bold text-xl mb-6 tracking-wide border-b border-[#bd9f6e] pb-2">
+              EN PRATIQUE
+            </h4>
+            <ul>
+              {pratiques.map(({ label, href }, index) => (
+                <li
+                  key={label}
+                  className="opacity-0 animate-fade-slide-in"
+                  style={{ animationDelay: `${index * 120}ms`, animationFillMode: "forwards" }}
+                >
                   <a
                     href={href}
-                    className="hover:text-blue-400 transition-colors duration-300 font-medium"
+                    className="hover:text-blue-400 hover:underline transition-colors duration-300 font-medium focus:outline-none focus:ring-2 focus:ring-[#bd9f6e] focus:ring-offset-2"
                   >
                     {label}
                   </a>
@@ -53,31 +87,39 @@ export default function CompanyDetails() {
 
           {/* Nous suivre */}
           <div>
-            <h4 className="font-semibold text-lg mb-5 tracking-wide">NOUS SUIVRE</h4>
-            <div className="flex items-center gap-5">
+            <h4 className="text-[#bd9f6e] font-bold text-xl mb-6 tracking-wide border-b border-[#bd9f6e] pb-2">
+              NOUS SUIVRE
+            </h4>
+            <div className="flex items-center gap-6">
+              {/* Facebook */}
               <a
                 href="https://www.facebook.com/guillaume.chary"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transform transition-transform hover:scale-110"
+                className="group transform transition-transform hover:scale-110 hover:animate-pulse-slow focus:outline-none focus:ring-2 focus:ring-[#bd9f6e] focus:ring-offset-2"
+                aria-label="Suivez-nous sur Facebook"
               >
                 <img
                   src="/icons/facebook.png"
                   alt="Facebook"
-                  className="w-8 h-8 drop-shadow-lg"
+                  className="w-10 h-10 drop-shadow-lg transition-all duration-300 group-hover:filter group-hover:brightness-0 group-hover:invert group-hover:sepia group-hover:saturate-200 group-hover:hue-rotate-[190deg]"
                 />
               </a>
+
               <div className="text-2xl font-light text-white select-none opacity-60">|</div>
+
+              {/* Instagram */}
               <a
                 href="https://www.instagram.com/m5.gui57"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transform transition-transform hover:scale-110"
+                className="group transform transition-transform hover:scale-110 hover:animate-pulse-slow focus:outline-none focus:ring-2 focus:ring-[#bd9f6e] focus:ring-offset-2"
+                aria-label="Suivez-nous sur Instagram"
               >
                 <img
                   src="/icons/instagram.png"
                   alt="Instagram"
-                  className="w-8 h-8 drop-shadow-lg"
+                  className="w-10 h-10 drop-shadow-lg transition-all duration-300 group-hover:filter group-hover:brightness-0 group-hover:invert group-hover:sepia group-hover:saturate-200 group-hover:hue-rotate-[305deg]"
                 />
               </a>
             </div>

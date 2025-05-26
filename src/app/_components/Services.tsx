@@ -19,10 +19,13 @@ export default function Services() {
   ];
 
   return (
-    <section className="bg-white py-16 px-4 sm:px-6 text-center">
+    <section
+      id="services"
+      className="bg-white/80 py-16 px-4 sm:px-6 text-center"
+    >
       <div className="max-w-6xl mx-auto">
         <p className="text-sm text-[#C27803] uppercase tracking-widest font-medium mb-2">
-          Chary Dépannage
+          G&G INTERVENTION
         </p>
         <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-10">
           Nos services
@@ -32,9 +35,11 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
+              data-aos="slide-right"
+              data-aos-delay={index * 150}
               className="bg-[#F9FAFB] rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300"
             >
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-[#FFF6E5] flex items-center justify-center shadow-inner">
+              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-[#bd9f6e] flex items-center justify-center shadow-inner">
                 <img
                   src={service.iconSrc}
                   alt={service.title}

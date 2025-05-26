@@ -2,14 +2,21 @@ import Star from '../_components/Stars';
 
 export default function AvisGoogle() {
   return (
-    <section className="bg-gradient-to-b from-gray-50 to-gray-100 text-black py-16 px-6">
+    <section data-aos="slide-left" className="bg-gradient-to-b from-gray-50 to-gray-100 text-black py-16 px-6">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-extrabold mb-6 tracking-wide text-blue-900">
-          Chary Plomberie & Co
+        <h2
+          data-aos="fade-up"
+          className="text-3xl md:text-4xl font-extrabold mb-6 tracking-wide text-blue-900"
+        >
+          G&G Intervention 
         </h2>
-        <p className="mb-10 text-base md:text-lg text-gray-600 max-w-xl mx-auto">
-          Nos clients sont satisfaits ! Découvrez leurs retours directement sur notre fiche Google.
-        </p>
+
+        <div
+          data-aos="zoom-in"
+          className="flex items-center justify-center gap-4 mb-12"
+        >
+          {/* étoiles et note */}
+        </div>
 
         {/* Étoiles et note */}
         <div className="flex items-center justify-center gap-4 mb-12">
@@ -58,6 +65,8 @@ export default function AvisGoogle() {
           ].map(({ name, stars, date, text, photoUrl }, index) => (
             <div
               key={index}
+              data-aos={index % 2 === 0 ? "slide-left" : "slide-right"}
+              data-aos-delay={index * 100}
               className="flex gap-4 p-5 rounded-xl bg-white shadow-md hover:shadow-lg transition-shadow duration-300"
             >
               {/* Avatar */}
@@ -92,7 +101,11 @@ export default function AvisGoogle() {
         </div>
 
         {/* Powered by Google */}
-        <div className="text-gray-400 text-sm mt-12">
+        <div
+          data-aos="fade-in"
+          data-aos-delay="200"
+          className="text-gray-400 text-sm mt-12"
+        >
           powered by{" "}
           <span className="font-bold tracking-wide select-none">
             <span className="text-[#4285F4]">G</span>

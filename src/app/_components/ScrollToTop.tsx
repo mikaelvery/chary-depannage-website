@@ -39,14 +39,13 @@ export default function ScrollToTop() {
                 w-15 h-15
                 border-2
                 rounded-full
-                text-yellow-600
+                text-blue-400
                 shadow-lg
-                hover:bg-yellow-50
-                opacity-80
+                hover:bg-white/10
                 transition
             "
             style={{
-                borderColor: "#FFD700", 
+                borderColor: "#42A5F5", 
                 fontWeight: "bold",
                 fontSize: "28px",
                 lineHeight: 1,
