@@ -1,13 +1,4 @@
-"use client";
-
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-
 export default function CompanyDetails() {
-  useEffect(() => {
-    AOS.init({ once: true, duration: 700, easing: 'ease-in-out' });
-  }, []);
 
   const horaires = [
     { jour: "Lundi", horaire: "9h00 - 18h" },

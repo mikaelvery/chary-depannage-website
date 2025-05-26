@@ -9,6 +9,7 @@ export default function ClientAOS({ children }: { children: React.ReactNode }) {
     AOS.init({
       duration: 800,
       once: true,
+      offset: 200,
     });
   }, []);
 

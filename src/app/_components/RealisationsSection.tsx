@@ -13,8 +13,7 @@ export default function RealisationsSection() {
               alt={`Réalisation G&G Intervention ${i + 1}`}
               data-aos="fade-up"
               data-aos-delay={i * 150}
-              className="w-full h-56 rounded-xl shadow-lg object-cover 
-                         hover:brightness-110 hover:scale-105 transition duration-300"
+              className="w-full h-56 rounded-xl shadow-lg object-cover hover:brightness-110 hover:scale-105 transition duration-300"
             />
           ))}
         </div>

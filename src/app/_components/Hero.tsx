@@ -1,7 +1,6 @@
 import Link from "next/link";
 import CallButton from "../_components/CallButton";
 
-
 export default function Hero() {
   return (
     <section className="bg-[#0D1B2A] text-white py-14 px-4 sm:px-6 relative overflow-hidden">
