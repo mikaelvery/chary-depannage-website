@@ -22,7 +22,6 @@ export default function Services() {
   ];
 
   const handleCardClick = (title: string) => {
-    // Ici tu peux aussi ouvrir une modal ou rediriger vers une page dédiée
     const contactSection = document.getElementById('contact');
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
@@ -38,14 +37,6 @@ export default function Services() {
       data-aos-anchor-placement="top-bottom"
     >
       <div className="max-w-6xl mx-auto">
-        <p
-          data-aos="fade-down"
-          data-aos-delay="100"
-          className="text-sm text-[#BD9F6E] uppercase tracking-widest font-medium mb-4"
-        >
-          G&G INTERVENTION
-        </p>
-
         <h2
           data-aos="zoom-in"
           data-aos-delay="250"

@@ -2,10 +2,10 @@ export default function RealisationsSection() {
   const images = ["/real1.jpg", "/real2.jpg", "/real3.jpg", "/real4.jpg"];
 
   return (
-    <section className="bg-gray-100/80 py-20 px-6">
+    <section className="bg-gray-100/80 py-20 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
         {/* Images de réalisations */}
-        <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="md:col-span-2 grid grid-cols-2 gap-4 sm:gap-6">
           {images.map((src, i) => (
             <img
               key={i}
@@ -13,13 +13,14 @@ export default function RealisationsSection() {
               alt={`Réalisation G&G Intervention ${i + 1}`}
               data-aos="fade-up"
               data-aos-delay={i * 150}
-              className="w-full h-56 rounded-xl shadow-lg object-cover hover:brightness-110 hover:scale-105 transition duration-300 cursor-pointer"
+              className="w-full h-40 sm:h-56 rounded-xl shadow-lg object-cover hover:brightness-110 hover:scale-105 transition duration-300 cursor-pointer"
             />
           ))}
-          <div className="sm:col-span-2 flex justify-center">
+
+          <div className="col-span-2 flex justify-center mt-2 sm:mt-4">
             <a
               href="/realisations"
-              className="mt-4 bg-[#BD9F6E] text-white font-semibold px-6 py-3 rounded-xl shadow hover:bg-[#cba870] transition text-sm"
+              className="bg-[#BD9F6E] text-white font-semibold px-6 py-3 rounded-xl shadow hover:bg-[#cba870] transition text-sm"
             >
               Voir toutes nos réalisations
             </a>
@@ -39,33 +40,37 @@ export default function RealisationsSection() {
             sociaux.
           </p>
 
-          <div className="flex gap-4">
+          <div className="flex flex-col gap-4 sm:flex-row">
             <a
               href="https://www.facebook.com/guillaume.chary"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-white rounded-xl shadow px-4 py-2 hover:bg-gray-200 transition"
+              className="flex items-center gap-3 bg-white rounded-xl shadow px-4 py-3 hover:bg-gray-200 transition w-full max-w-[250px] mx-auto sm:mx-0"
             >
               <img
                 src="/icons/facebook.svg"
                 alt="Facebook"
                 className="w-6 h-6"
               />
-              <span className="text-sm font-medium text-gray-800 hover:bg-[#cba870]">Facebook</span>
+              <span className="text-sm font-medium text-gray-800">
+                Facebook
+              </span>
             </a>
 
             <a
               href="https://www.instagram.com/m5.gui57"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-white rounded-xl shadow px-4 py-2 hover:bg-gray-200 transition"
+              className="flex items-center gap-3 bg-white rounded-xl shadow px-4 py-3 hover:bg-gray-200 transition w-full max-w-[250px] mx-auto sm:mx-0"
             >
               <img
                 src="/icons/instagram.svg"
                 alt="Instagram"
                 className="w-6 h-6"
               />
-              <span className="text-sm font-medium text-gray-800">Instagram</span>
+              <span className="text-sm font-medium text-gray-800">
+                Instagram
+              </span>
             </a>
           </div>
         </div>

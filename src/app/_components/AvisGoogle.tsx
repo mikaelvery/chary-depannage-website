@@ -102,7 +102,7 @@ export default function AvisGoogle() {
         {!showAll && (
           <button
             onClick={() => setShowAll(true)}
-            className="mt-10 text-blue-900 border border-blue-900 px-4 py-2 rounded-full font-medium hover:bg-blue-900 hover:text-white transition-all duration-300 cursor-po"
+            className="mt-10 text-blue-900 border border-blue-900 px-4 py-2 rounded-full font-medium hover:bg-blue-900 hover:text-white transition-all duration-300 cursor-pointer"
           >
             Voir tous les avis
           </button>
