@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f9f9f9; color: #333;">
           <div style="text-align: center; margin-bottom: 20px;">
-            <img src="https://chary-depannage-website.vercel.app/logo-gg.png" alt="G & G Intervention" style="height: 80px;" />
+            <img src="https://chary-depannage-website.vercel.app/logo-gg.png" alt="G&G Intervention" style="height: 80px;" />
           </div>
 
           <h2 style="color: #3A7C4A;">📬 Nouvelle demande de devis</h2>

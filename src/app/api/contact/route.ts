@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
       html: `
         <div style="font-family: Arial, sans-serif; background:#f7f7f7; padding:20px; color:#222;">
           <div style="text-align:center; margin-bottom:20px;">
-            <img src="https://ton-site.com/logo.png" alt="G&G INTERVENTION" style="height:80px;" />
+            <img src="https://chary-depannage-website.vercel.app/logo-gg.png" alt="G&G Intervention" style="height:80px;" />
           </div>
           <h2 style="color:#C27803;">Merci pour votre message, ${data.name} !</h2>
           <p>Nous avons bien reçu votre message et nous vous répondrons rapidement.</p>
