@@ -3,7 +3,7 @@ import CallButton from "../_components/CallButton";
 
 export default function Hero() {
   return (
-    <section className="bg-[#0D1B2A] text-white py-14 px-4 sm:px-6 relative overflow-hidden">
+    <section className="bg-gradient-to-b from-[#0a1525] to-[#0d1b2a] text-white py-14 px-4 sm:px-6 relative overflow-hidden">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 md:gap-12 items-center text-center md:text-left">
         <div className="flex-1 z-10">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-1">
@@ -17,7 +17,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <Link
               href="/devis"
-              className="bg-[#bd9f6e] hover:bg-[#cba870] text-white font-semibold px-6 py-3 rounded-full text-base shadow-lg transition"
+              className="bg-[#BD9F6E] hover:bg-[#cba870] text-white font-semibold px-6 py-3 rounded-full text-base shadow-lg transition"
             >
               OBTENIR UN DEVIS
             </Link>

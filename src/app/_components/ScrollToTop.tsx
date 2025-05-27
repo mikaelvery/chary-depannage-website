@@ -43,6 +43,7 @@ export default function ScrollToTop() {
                 shadow-lg
                 hover:bg-white/10
                 transition
+                cursor-pointer
             "
             style={{
                 borderColor: "#42A5F5", 

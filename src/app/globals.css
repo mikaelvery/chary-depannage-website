@@ -43,12 +43,15 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth;margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: var(--font-montserrat), sans-serif;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .dark {

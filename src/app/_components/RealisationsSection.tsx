@@ -1,5 +1,5 @@
 export default function RealisationsSection() {
-  const images = ["/real1.jpg", "/real2.jpg", "/real3.jpg", "/real1.jpg"];
+  const images = ["/real1.jpg", "/real2.jpg", "/real3.jpg", "/real4.jpg"];
 
   return (
     <section className="bg-gray-100/80 py-20 px-6">
@@ -13,9 +13,17 @@ export default function RealisationsSection() {
               alt={`Réalisation G&G Intervention ${i + 1}`}
               data-aos="fade-up"
               data-aos-delay={i * 150}
-              className="w-full h-56 rounded-xl shadow-lg object-cover hover:brightness-110 hover:scale-105 transition duration-300"
+              className="w-full h-56 rounded-xl shadow-lg object-cover hover:brightness-110 hover:scale-105 transition duration-300 cursor-pointer"
             />
           ))}
+          <div className="sm:col-span-2 flex justify-center">
+            <a
+              href="/realisations"
+              className="mt-4 bg-[#BD9F6E] text-white font-semibold px-6 py-3 rounded-xl shadow hover:bg-[#cba870] transition text-sm"
+            >
+              Voir toutes nos réalisations
+            </a>
+          </div>
         </div>
 
         {/* Bloc Réseaux Sociaux */}
@@ -43,7 +51,7 @@ export default function RealisationsSection() {
                 alt="Facebook"
                 className="w-6 h-6"
               />
-              <span className="text-sm font-medium text-gray-800">Facebook</span>
+              <span className="text-sm font-medium text-gray-800 hover:bg-[#cba870]">Facebook</span>
             </a>
 
             <a
