@@ -5,19 +5,27 @@ export default function Services() {
   const services = [
     {
       iconSrc: '/leak.png',
-      title: 'Réparation de fuite',
-    },
-    {
-      iconSrc: '/cleaning.png',
-      title: 'Débouchage',
+      title: 'Remplacement plomberie',
     },
     {
       iconSrc: '/water-heater.png',
       title: 'Remplacement chauffe-eau',
     },
     {
+      iconSrc: 'icons/water.png',
+      title: 'Détection de fuite',
+    },
+    {
+      iconSrc: '/icons/cleaning.png',
+      title: 'Débouchage',
+    },
+    {
       iconSrc: '/icons/door.png',
-      title: 'Ouverture de porte',
+      title: 'Serrurerie/Ouverture de porte',
+    },
+    {
+      iconSrc: '/icons/window.png',
+      title: 'Petit vitrage',
     },
   ];
 
@@ -45,7 +53,7 @@ export default function Services() {
           Nos services
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10 sm:gap-x-10 sm:gap-y-12">
           {services.map((service, index) => (
             <div
               key={index}

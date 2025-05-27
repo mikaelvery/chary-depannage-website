@@ -34,8 +34,9 @@ export default function About() {
         >
           Guillaume Chary intervient depuis 2020 pour vos urgences de{" "}
           <strong className="text-black font-semibold">plomberie</strong>,{" "}
-          <strong className="text-black font-semibold">chauffagerie</strong> et{" "}
-          <strong className="text-black font-semibold">serrurerie</strong> à Metz et dans les environs.
+          <strong className="text-black font-semibold">débouchage</strong>,{" "}
+          <strong className="text-black font-semibold">serrurerie</strong> et{" "}
+          <strong className="text-black font-semibold">petit vitrage</strong> à Metz et dans les environs.
           Disponible 5j/7, il garantit un service rapide, fiable et de qualité,
           pour les particuliers comme les professionnels.
         </p>
