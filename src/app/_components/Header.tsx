@@ -24,9 +24,9 @@ export default function Header() {
 
         {/* Navigation + Téléphone */}
         <div className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-800">
-          <Link href="#services" className="hover:text-[#bd9f6e] transition">Services</Link>
-          <Link href="#about" className="hover:text-[#bd9f6e] transition">À propos</Link>
-          <Link href="#contact" className="hover:text-[#bd9f6e] transition">Contact</Link>
+          <Link href="/#services" className="hover:text-[#bd9f6e] transition">Services</Link>
+          <Link href="/#about" className="hover:text-[#bd9f6e] transition">À propos</Link>
+          <Link href="/contact" className="hover:text-[#bd9f6e] transition">Contact</Link>
         </div>
       </div>
     </header>

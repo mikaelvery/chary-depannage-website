@@ -21,8 +21,7 @@ export default function Home() {
         <meta name="description" content="Intervention rapide pour plomberie, chauffage, serrurerie à Metz et alentours. Disponible 24h/24." />
       </Head>
       <div className="bg-white/50 text-gray-900 max-w-screen overflow-x-hidden">
- 
-      <ClientAOS>       
+        <ClientAOS>       
           <Header />
           <Hero />
           <About />

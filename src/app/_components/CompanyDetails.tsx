@@ -1,5 +1,6 @@
-export default function CompanyDetails() {
+import Link from "next/link";
 
+export default function CompanyDetails() {
   const horaires = [
     { jour: "Lundi", horaire: "9h00 - 18h" },
     { jour: "Mardi", horaire: "9h00 - 18h" },
@@ -11,10 +12,10 @@ export default function CompanyDetails() {
   ];
 
   const pratiques = [
-    { label: "Confidentialité", href: "#" },
-    { label: "Mentions légales", href: "#" },
-    { label: "C.G.V.", href: "#" },
-    { label: "Contact", href: "#contact" },
+    { label: "Confidentialité", href: "/privacy-policy" },
+    { label: "Mentions légales", href: "/legal-notice" },
+    { label: "C.G.V.", href: "/terms-of-service" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
@@ -23,7 +24,6 @@ export default function CompanyDetails() {
       data-aos="fade-up"
     >
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 relative">
-
         {/* Colonne 1 : Horaires */}
         <div data-aos="fade-right" className="md:ml-40 relative z-10">
           <h4 className="text-[#bd9f6e] font-bold text-xl mb-6 tracking-wide border-b border-[#bd9f6e] pb-2">
@@ -65,12 +65,12 @@ export default function CompanyDetails() {
                   className="opacity-0 animate-fade-slide-in"
                   style={{ animationDelay: `${index * 120}ms`, animationFillMode: "forwards" }}
                 >
-                  <a
+                  <Link
                     href={href}
                     className="hover:text-blue-400 hover:underline transition-colors duration-300 font-medium focus:outline-none focus:ring-2 focus:ring-[#bd9f6e] focus:ring-offset-2"
                   >
                     {label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

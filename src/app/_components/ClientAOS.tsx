@@ -10,7 +10,7 @@ export default function ClientAOS({ children }: { children: React.ReactNode }) {
       duration: 600, 
       easing: "ease-out", 
       once: true,
-      offset: window.innerWidth > 768 ? 120 : 70, 
+      offset: window.innerWidth > 768 ? 120 : 150, 
     });
   }, []);
 
