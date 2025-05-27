@@ -20,7 +20,7 @@ export default function Home() {
         <title>G&G Intervention - Plombier à Metz</title>
         <meta name="description" content="Intervention rapide pour plomberie, chauffage, serrurerie à Metz et alentours. Disponible 24h/24." />
       </Head>
-      <div className="bg-white/50 text-gray-900">
+      <div className="bg-white/50 text-gray-900 overflow-x-hidden">
         <ClientAOS>       
           <Header />
           <Hero />
