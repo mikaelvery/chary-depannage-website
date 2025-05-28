@@ -32,7 +32,7 @@ export default function About() {
           data-aos-duration="700"
           className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto"
         >
-          Guillaume Chary intervient depuis 2020 pour vos urgences de{" "}
+          Guillaume Chary intervient depuis 2019 pour vos urgences de{" "}
           <strong className="text-black font-semibold">plomberie</strong>,{" "}
           <strong className="text-black font-semibold">débouchage</strong>,{" "}
           <strong className="text-black font-semibold">serrurerie</strong> et{" "}
