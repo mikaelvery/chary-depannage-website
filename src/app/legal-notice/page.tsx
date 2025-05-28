@@ -12,7 +12,7 @@ export default function LegalNotice() {
           </p>
           <ul data-aos="fade-up" data-aos-delay="150" className="list-disc list-inside ml-4">
             <li><strong>Propriétaire / Éditeur :</strong> Guillaume Chary – Micro-entrepreneur</li>
-            <li><strong>Email :</strong> <a href="mailto:guillaume.chary57@gmail.com" className="text-blue-600 underline">guillaume.chary57@gmail.com</a></li>
+            <li><strong>Email :</strong> <a href="mailto:gg.intervention@gmail.com" className="text-blue-600 underline">gg.intervention@gmail.com</a></li>
             <li><strong>Hébergeur :</strong> Hostinger – <a href="https://www.hostinger.fr" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">www.hostinger.fr</a></li>
           </ul>
 
@@ -33,7 +33,7 @@ export default function LegalNotice() {
 
           <h2 data-aos="fade-up" className="text-xl font-semibold mb-4">5. Données personnelles</h2>
           <p data-aos="fade-up" data-aos-delay="100">
-            Les données personnelles recueillies sur ce site sont destinées uniquement à l’usage de Guillaume Chary. Conformément à la réglementation, vous disposez d’un droit d’accès, de modification, de rectification et de suppression des données vous concernant. Pour exercer ce droit, vous pouvez contacter <a href="mailto:guillaume.chary57@gmail.com" className="text-blue-600 underline">guillaume.chary57@gmail.com</a>.
+            Les données personnelles recueillies sur ce site sont destinées uniquement à l’usage de Guillaume Chary. Conformément à la réglementation, vous disposez d’un droit d’accès, de modification, de rectification et de suppression des données vous concernant. Pour exercer ce droit, vous pouvez contacter <a href="mailto:gg.intervention@gmail.com" className="text-blue-600 underline">gg.intervention@gmail.com</a>.
           </p>
 
           <h2 data-aos="fade-up" className="text-xl font-semibold mb-4">6. Cookies</h2>

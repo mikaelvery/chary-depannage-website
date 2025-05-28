@@ -28,8 +28,8 @@ export default function Contact() {
 
             <div className="flex items-center gap-3 text-gray-800">
               <EnvelopeIcon className="w-5 h-5 text-[#BD9F6E]" />
-              <a href="mailto:guillaume.chary57@gmail.com" className="hover:underline">
-                guillaume.chary57@gmail.com
+              <a href="mailto:gg.intervention@gmail.com" className="hover:underline">
+                gg.intervention@gmail.com
               </a>
             </div>
           </div>

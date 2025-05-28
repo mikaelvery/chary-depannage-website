@@ -39,7 +39,7 @@ export default function PrivacyPolicy() {
             5. Vos droits
           </h2>
           <p data-aos="fade-up" data-aos-delay="100">
-            Conformément au RGPD, vous disposez d’un droit d’accès, de rectification et de suppression de vos données. Pour toute demande, contactez <a href="mailto:guillaume.chary57@gmail.com" className="text-blue-600 underline">guillaume.chary57@gmail.com</a>.
+            Conformément au RGPD, vous disposez d’un droit d’accès, de rectification et de suppression de vos données. Pour toute demande, contactez <a href="mailto:gg.intervention@gmail.com" className="text-blue-600 underline">gg.intervention@gmail.com</a>.
           </p>
 
           <h2 data-aos="fade-up" className="text-xl font-semibold mb-4">

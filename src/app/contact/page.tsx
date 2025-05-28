@@ -90,10 +90,10 @@ export default function Contact() {
           <p className="mt-6 text-center text-sm text-gray-600">
             Vous pouvez aussi m’écrire directement à{" "}
             <a
-              href="mailto:guillaume.chary57@gmail.com"
+              href="mailto:gg.intervention@gmail.com"
               className="text-blue-600"
             >
-              guillaume.chary57@gmail.com
+              gg.intervention@gmail.com
             </a>
             .
           </p>
