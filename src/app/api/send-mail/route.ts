@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
       from: process.env.EMAIL_USER,
       to: process.env.ARTISAN_EMAIL,
       replyTo: data.email,
-      subject: "Nouvelle demande de devis - G & G INTERVENTION",
+      subject: "Nouvelle demande de devis - G&G INTERVENTION",
       text: `Nouvelle demande de devis reçue de ${data.prenom} ${data.nom}`,
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f9f9f9; color: #333;">
