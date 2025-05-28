@@ -9,36 +9,44 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
+    gender: "",
     message: ""
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    const response = await fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    if (response.ok) {
-      alert(`Merci ${formData.name}, votre message a bien été envoyé !`);
-      setFormData({ name: "", email: "", message: "" });
-    } else {
-      const errorData = await response.json();
-      alert(`Erreur: ${errorData.error || "Une erreur est survenue"}`);
+      if (response.ok) {
+        alert(`Merci ${formData.gender} ${formData.name}, votre message a bien été envoyé !`);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          gender: "",
+          message: ""
+        });
+      } else {
+        const errorData = await response.json();
+        alert(`Erreur: ${errorData.error || "Une erreur est survenue"}`);
+      }
+    } catch (error) {
+      alert("Erreur réseau, veuillez réessayer plus tard.");
     }
-  } catch (error) {
-    alert("Erreur réseau, veuillez réessayer plus tard.");
-  }
-};
+  };
 
   return (
     <DefaultLayout>
@@ -49,6 +57,18 @@ export default function Contact() {
             className="bg-white/80 backdrop-blur-md shadow-xl p-8 rounded-2xl space-y-6"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <select
+                name="gender"
+                value={formData.gender}
+                onChange={handleChange}
+                required
+                className="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C27803]"
+              >
+                <option value="">Civilité</option>
+                <option value="Monsieur">Monsieur</option>
+                <option value="Madame">Madame</option>
+              </select>
+
               <input
                 type="text"
                 name="name"
@@ -67,7 +87,17 @@ export default function Contact() {
                 required
                 className="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C27803]"
               />
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Votre téléphone"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+                className="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C27803]"
+              />
             </div>
+
             <textarea
               name="message"
               placeholder="Votre message"
