@@ -1,5 +1,10 @@
-import SignatureForm from "app/_components/SignatureForm";
+import { Suspense } from "react";
+import SignatureForm from "../_components/SignatureForm";
 
 export default function SignaturePage() {
-  return <SignatureForm />;
+  return (
+    <Suspense fallback={<div className="text-center mt-10">Chargement de la signature...</div>}>
+      <SignatureForm />
+    </Suspense>
+  );
 }
