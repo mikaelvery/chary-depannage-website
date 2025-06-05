@@ -34,6 +34,11 @@ export default function SignatureForm() {
     console.log("Signature capturée :", signatureDataUrl.substring(0, 30) + "...");
 
     const ref = doc(db, "devis", numero);
+    await updateDoc(ref, {
+      isSigned: true,
+      signatureUrl: signatureDataUrl,
+      signedAt: serverTimestamp()
+    });
     
     // Vérifier que le doc existe
     const docSnap = await getDoc(ref);
