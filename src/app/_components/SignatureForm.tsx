@@ -34,25 +34,24 @@ export default function SignatureForm() {
     console.log("Signature capturée :", signatureDataUrl.substring(0, 30) + "...");
 
     const ref = doc(db, "devis", numero);
-    await updateDoc(ref, {
-      isSigned: true,
-      signatureUrl: signatureDataUrl,
-      signedAt: serverTimestamp()
-    });
+    console.log("Référence Firestore:", ref);
+      await updateDoc(ref, {
+        isSigned: true,
+        signatureUrl: signatureDataUrl,
+        signedAt: serverTimestamp()
+      });
+
     
     // Vérifier que le doc existe
     const docSnap = await getDoc(ref);
     if (!docSnap.exists()) {
       alert("Document non trouvé en base Firestore.");
       setLoading(false);
+      console.log("Doc Snapshot exist:", docSnap.exists());
+      console.log("Doc data:", docSnap.data());
       return;
+      
     }
-
-    await updateDoc(ref, {
-      isSigned: true,
-      signatureUrl: signatureDataUrl,
-      signedAt: serverTimestamp(),
-    });
 
     console.log("Document mis à jour avec succès.");
     setIsSigned(true);
