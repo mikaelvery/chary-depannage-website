@@ -53,6 +53,7 @@ export default function SignatureForm() {
         isSigned: true,
         signatureUrl: signatureDataUrl,
         signedAt: serverTimestamp(),
+        isRead: false,
       });
 
       console.log("Document mis à jour avec succès.");
