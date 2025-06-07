@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import SignatureCanvas from "react-signature-canvas";
 import { collection, query, where, getDocs, updateDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../../../firebase";
@@ -12,9 +12,32 @@ export default function SignatureForm() {
   const sigCanvas = useRef<SignatureCanvas>(null);
   const [isSigned, setIsSigned] = useState(false);
   const [loading, setLoading] = useState(false);
-
+  const [checking, setChecking] = useState(true); // pour attendre la vérification
   const searchParams = useSearchParams();
   const numero = searchParams.get("numero");
+
+  useEffect(() => {
+    const checkIfAlreadySigned = async () => {
+      if (!numero) return;
+
+      const devisRef = collection(db, "devis");
+      const q = query(devisRef, where("devisId", "==", numero));
+      const querySnapshot = await getDocs(q);
+
+      if (!querySnapshot.empty) {
+        const docSnap = querySnapshot.docs[0];
+        const data = docSnap.data();
+
+        if (data.isSigned === true) {
+          setIsSigned(true);
+        }
+      }
+
+      setChecking(false); // on a fini de checker
+    };
+
+    checkIfAlreadySigned();
+  }, [numero]);
 
   const handleValidate = async () => {
     if (!sigCanvas.current || sigCanvas.current.isEmpty()) {
@@ -29,7 +52,6 @@ export default function SignatureForm() {
     console.log("Numéro de devis:", numero);
 
     try {
-      // Requête pour récupérer le document avec ce devisId
       const devisRef = collection(db, "devis");
       const q = query(devisRef, where("devisId", "==", numero));
       const querySnapshot = await getDocs(q);
@@ -40,7 +62,6 @@ export default function SignatureForm() {
         return;
       }
 
-      // On récupère le premier document correspondant
       const docSnap = querySnapshot.docs[0];
       const ref = docSnap.ref;
 
@@ -48,7 +69,6 @@ export default function SignatureForm() {
       const signatureDataUrl = canvas.toDataURL("image/png");
       console.log("Signature capturée :", signatureDataUrl.substring(0, 30) + "...");
 
-      // Mise à jour du document Firestore
       await updateDoc(ref, {
         isSigned: true,
         signatureUrl: signatureDataUrl,
@@ -70,9 +90,11 @@ export default function SignatureForm() {
     <DefaultLayout>
       <PageLayout title="Signature Devis">
         <section className="space-y-6 text-gray-800 text-sm leading-relaxed max-w-3xl mx-auto">
-          {isSigned ? (
+          {checking ? (
+            <p className="text-center">Chargement...</p>
+          ) : isSigned ? (
             <p className="text-green-600 font-bold text-lg text-center">
-              Merci, le devis a bien été signé ✅
+              ✅ Vous avez déjà signé ce devis. GG Intervention vous recontactera au plus vite.
             </p>
           ) : (
             <>
