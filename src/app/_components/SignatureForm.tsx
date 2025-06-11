@@ -74,6 +74,8 @@ export default function SignatureForm() {
         signatureUrl: signatureDataUrl,
         signedAt: serverTimestamp(),
         isRead: false,
+        userId: "UUID_USER",
+        message: `Le devis ${numero} a été signé.`
       });
 
       console.log("Document mis à jour avec succès.");
