@@ -1,3 +1,8 @@
 User-agent: *
 Allow: /
-Sitemap: https://ggintervention.com/sitemap.xml
+
+# On bloque les pages qui ne doivent pas être indexées
+Disallow: /signature
+
+# Emplacement du sitemap
+Sitemap: https://www.ggintervention.fr/sitemap.xml
