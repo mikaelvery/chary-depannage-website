@@ -1,10 +1,16 @@
+import SignatureForm from "app/_components/SignatureForm";
+import Head from "next/head";
 import { Suspense } from "react";
-import SignatureForm from "../_components/SignatureForm";
 
 export default function SignaturePage() {
   return (
-    <Suspense fallback={<div className="text-center mt-10">Chargement de la signature...</div>}>
-      <SignatureForm />
-    </Suspense>
+    <>
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
+      <Suspense fallback={<div className="text-center mt-10">Chargement de la signature...</div>}>
+        <SignatureForm />
+      </Suspense>
+    </>
   );
 }
