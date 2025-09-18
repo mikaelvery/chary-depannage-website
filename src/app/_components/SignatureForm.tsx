@@ -12,7 +12,7 @@ export default function SignatureForm() {
   const sigCanvas = useRef<SignatureCanvas>(null);
   const [isSigned, setIsSigned] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [checking, setChecking] = useState(true); // pour attendre la vérification
+  const [checking, setChecking] = useState(true); 
   const searchParams = useSearchParams();
   const numero = searchParams.get("numero");
 

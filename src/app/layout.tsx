@@ -28,7 +28,7 @@ export const metadata = {
   openGraph: {
     title: "G&G Intervention",
     description: "Intervention rapide à Metz et ses alentours pour tous vos dépannages.",
-    url: "https://ggintervention",
+    url: "https://www.ggintervention.fr",
     siteName: "G&G Intervention",
     images: [
       {

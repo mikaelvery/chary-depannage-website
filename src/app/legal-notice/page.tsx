@@ -13,7 +13,7 @@ export default function LegalNotice() {
           <ul data-aos="fade-up" data-aos-delay="150" className="list-disc list-inside ml-4">
             <li><strong>Propriétaire / Éditeur :</strong> Guillaume Chary – Micro-entrepreneur</li>
             <li><strong>Email :</strong> <a href="mailto:gg.intervention@gmail.com" className="text-blue-600 underline">gg.intervention@gmail.com</a></li>
-            <li><strong>Hébergeur :</strong> Hostinger – <a href="https://www.hostinger.fr" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">www.hostinger.fr</a></li>
+            <li><strong>Hébergeur :</strong> Hostinger – <a href="https://www.ovh.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">www.ovh.com/</a></li>
           </ul>
 
           <h2 data-aos="fade-up" className="text-xl font-semibold mb-4">2. Conditions d’utilisation</h2>
