@@ -127,7 +127,7 @@ export default function CompanyDetails() {
                 <img
                   src="/icons/snapchat.png"
                   alt="Snapchat"
-                  className="w-10 h-10 drop-shadow-lg transition-all duration-300 group-hover:filter group-hover:brightness-0 group-hover:invert group-hover:sepia group-hover:saturate-200 group-hover:hue-rotate-[305deg]"
+                  className="w-12 h-12 drop-shadow-lg transition-all duration-300 group-hover:filter group-hover:brightness-0 group-hover:invert group-hover:sepia group-hover:saturate-200 group-hover:hue-rotate-[305deg]"
                 />
               </a>
             </div>

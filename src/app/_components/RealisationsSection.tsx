@@ -30,50 +30,54 @@ export default function RealisationsSection() {
         {/* Bloc Réseaux Sociaux */}
         <div
           data-aos="fade-left"
-          className="flex flex-col justify-center md:pl-6"
+          className="flex flex-col justify-center md:pl-6 text-center md:text-left"
         >
           <h3 className="text-[#0D1B2A] font-extrabold uppercase mb-3 text-2xl tracking-widest">
             Rejoignez-nous
           </h3>
           <p className="text-gray-700 mb-6 leading-relaxed text-base">
-            Suivez nos interventions, promotions et actualités sur nos réseaux
-            sociaux.
+            Suivez nos interventions, promotions et actualités sur nos réseaux sociaux.
           </p>
 
-          <div className="flex flex-col gap-4 sm:flex-row">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 justify-center">
+            {/* Facebook */}
             <a
-              href="https://www.facebook.com/guillaume.chary"
+              href="https://www.facebook.com/ggintervention"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 bg-white rounded-xl shadow px-4 py-3 hover:bg-gray-200 transition w-full max-w-[250px] mx-auto sm:mx-0"
+              className="flex items-center gap-3 bg-white rounded-xl shadow px-4 py-3 hover:bg-gray-200 transition justify-center
+                        w-full max-w-[250px] mx-auto sm:mx-0 sm:w-auto"
             >
-              <img
-                src="/icons/facebook.svg"
-                alt="Facebook"
-                className="w-6 h-6"
-              />
-              <span className="text-sm font-medium text-gray-800">
-                Facebook
-              </span>
+              <img src="/icons/facebook.svg" alt="Facebook" className="w-6 h-6" />
+              <span className="text-sm font-medium text-gray-800">Facebook</span>
             </a>
 
+            {/* Instagram */}
             <a
-              href="https://www.instagram.com/m5.gui57"
+              href="https://www.instagram.com/ggintervention"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 bg-white rounded-xl shadow px-4 py-3 hover:bg-gray-200 transition w-full max-w-[250px] mx-auto sm:mx-0"
+              className="flex items-center gap-3 bg-white rounded-xl shadow px-4 py-3 hover:bg-gray-200 transition justify-center
+                        w-full max-w-[250px] mx-auto sm:mx-0 sm:w-auto"
             >
-              <img
-                src="/icons/instagram.svg"
-                alt="Instagram"
-                className="w-6 h-6"
-              />
-              <span className="text-sm font-medium text-gray-800">
-                Instagram
-              </span>
+              <img src="/icons/instagram.svg" alt="Instagram" className="w-6 h-6" />
+              <span className="text-sm font-medium text-gray-800">Instagram</span>
+            </a>
+
+            {/* Snapchat */}
+            <a
+              href="https://www.snapchat.com/add/ggintervention"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 bg-white rounded-xl shadow px-4 py-3 hover:bg-gray-200 transition justify-center
+                        w-full max-w-[250px] mx-auto sm:mx-0 sm:w-auto"
+            >
+              <img src="/icons/snapchat.svg" alt="Snapchat" className="w-6 h-6" />
+              <span className="text-sm font-medium text-gray-800">Snapchat</span>
             </a>
           </div>
         </div>
+
       </div>
     </section>
   );
