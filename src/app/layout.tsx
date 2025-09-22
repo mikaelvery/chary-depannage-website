@@ -26,7 +26,7 @@ export const metadata = {
   title:
     "GG Intervention Metz | Plomberie, Serrurerie, Vitrerie & Dépannage multiservices",
   description:
-    "GG Intervention (G&G Intervention) à Metz : plomberie (remplacement évier, fuite, débouchage), serrurerie (ouverture de porte, remplacement), vitrerie (simple & double vitrage), montage et pose de meubles. Intervention rapide dans un rayon de 35 km, 7j/7, devis gratuit.",
+    "GG Intervention (G&G Intervention) à Metz : plomberie (remplacement évier, fuite, débouchage), serrurerie (ouverture de porte, remplacement), vitrerie (simple & double vitrage), montage et pose de meubles. Intervention rapide dans un rayon de 50 km, 6j/7, devis gratuit.",
   keywords: [
     "GG Intervention",
     "G&G Intervention",
@@ -43,7 +43,7 @@ export const metadata = {
     title:
       "GG Intervention Metz | Plomberie, Serrurerie, Vitrerie & Dépannage multiservices",
     description:
-      "Plomberie, serrurerie, vitrerie et dépannage multiservices à Metz et alentours. Intervention rapide 7j/7. Contactez GG Intervention dès maintenant !",
+      "Plomberie, serrurerie, vitrerie et dépannage multiservices à Metz et alentours. Intervention rapide 6j/7. Contactez GG Intervention dès maintenant !",
     url: "https://ggintervention.fr",
     siteName: "GG Intervention",
     images: [
@@ -85,7 +85,7 @@ export default function RootLayout({
         />
         <meta
           property="og:description"
-          content="Plomberie, serrurerie, vitrerie et dépannage multiservices à Metz et alentours. Intervention rapide 7j/7, devis gratuit."
+          content="Plomberie, serrurerie, vitrerie et dépannage multiservices à Metz et alentours. Intervention rapide 6j/7, devis gratuit."
         />
         <meta property="og:url" content="https://ggintervention.fr" />
         <meta
@@ -120,10 +120,10 @@ export default function RootLayout({
               },
               "areaServed": {
                 "@type": "Place",
-                "name": "Metz et alentours (35 km)",
+                "name": "Metz et alentours (50 km)",
               },
               "description":
-                "GG Intervention à Metz propose des services de plomberie, serrurerie, vitrerie et montage de meubles. Intervention rapide et fiable, devis gratuit, 7j/7.",
+                "GG Intervention à Metz propose des services de plomberie, serrurerie, vitrerie et montage de meubles. Intervention rapide et fiable, devis gratuit, 6j/7.",
               "openingHours": "Mo-Su 08:00-22:00",
               "sameAs": [
                 "https://www.facebook.com/ggintervention",

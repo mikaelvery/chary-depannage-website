@@ -37,7 +37,7 @@ export default function About() {
           <strong className="text-black font-semibold">débouchage</strong>,{" "}
           <strong className="text-black font-semibold">serrurerie</strong> et{" "}
           <strong className="text-black font-semibold">petit vitrage</strong> à Metz et dans les environs.
-          Disponible 5j/7, il garantit un service rapide, fiable et de qualité,
+          Disponible 6j/7, il garantit un service rapide, fiable et de qualité,
           pour les particuliers comme les professionnels.
         </p>
       </div>
