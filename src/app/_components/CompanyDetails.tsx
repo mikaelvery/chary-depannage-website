@@ -12,9 +12,9 @@ export default function CompanyDetails() {
   ];
 
   const pratiques = [
-    { label: "Confidentialité", href: "/privacy-policy" },
-    { label: "Mentions légales", href: "/legal-notice" },
-    { label: "C.G.V.", href: "/terms-of-service" },
+    { label: "Confidentialité", href: "/politique-de-confidentialite" },
+    { label: "Mentions légales", href: "/mentions-legales" },
+    { label: "C.G.V.", href: "/conditions-generales" },
     { label: "Contact", href: "/contact" },
   ];
 

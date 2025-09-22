@@ -1,6 +1,24 @@
 import DefaultLayout from "../_components/DefaultLayout";
 import PageLayout from "../_components/PageLayout";
 
+export const metadata = {
+  title: "Politique de confidentialité | GG Intervention Metz",
+  description:
+    "Découvrez la politique de confidentialité de GG Intervention Metz : collecte et utilisation des données, formulaires de contact, cookies, outils d’analyse et droits RGPD.",
+  robots: "noindex, follow",
+  alternates: {
+    canonical: "https://ggintervention.fr/politique-de-confidentialite",
+  },
+  openGraph: {
+    title: "Politique de confidentialité | GG Intervention Metz",
+    description:
+      "Informations sur la protection des données personnelles, l’utilisation des formulaires, la sécurité et vos droits RGPD sur GG Intervention Metz.",
+    url: "https://ggintervention.fr/politique-de-confidentialite",
+    siteName: "GG Intervention",
+    type: "article",
+  },
+};
+
 export default function PrivacyPolicy() {
   return (
     <DefaultLayout>

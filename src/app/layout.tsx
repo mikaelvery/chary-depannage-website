@@ -23,10 +23,9 @@ const montserrat = Montserrat({
 
 export const metadata = {
   metadataBase: new URL("https://ggintervention.fr"),
-  title:
-    "GG Intervention Metz | Plomberie, Serrurerie, Vitrerie & Dépannage multiservices",
+  title: "GG Intervention | Dépannage plomberie, serrurerie & vitrerie à Metz",
   description:
-    "GG Intervention (G&G Intervention) à Metz : plomberie (remplacement évier, fuite, débouchage), serrurerie (ouverture de porte, remplacement), vitrerie (simple & double vitrage), montage et pose de meubles. Intervention rapide dans un rayon de 50 km, 6j/7, devis gratuit.",
+    "GG Intervention (G&G Intervention) à Metz : dépannage multiservices rapide et fiable. Plomberie, serrurerie, vitrerie, montage et pose de meubles. Intervention 6j/7 dans un rayon de 50 km. Devis gratuit.",
   keywords: [
     "GG Intervention",
     "G&G Intervention",
@@ -40,10 +39,9 @@ export const metadata = {
     "pose meubles Metz",
   ],
   openGraph: {
-    title:
-      "GG Intervention Metz | Plomberie, Serrurerie, Vitrerie & Dépannage multiservices",
+    title: "GG Intervention | Dépannage plomberie, serrurerie & vitrerie à Metz",
     description:
-      "Plomberie, serrurerie, vitrerie et dépannage multiservices à Metz et alentours. Intervention rapide 6j/7. Contactez GG Intervention dès maintenant !",
+      "Plombier, serrurier, vitrier et dépannage multiservices à Metz et alentours. Service rapide et devis gratuit 6j/7.",
     url: "https://ggintervention.fr",
     siteName: "GG Intervention",
     images: [
@@ -124,7 +122,7 @@ export default function RootLayout({
               },
               "description":
                 "GG Intervention à Metz propose des services de plomberie, serrurerie, vitrerie et montage de meubles. Intervention rapide et fiable, devis gratuit, 6j/7.",
-              "openingHours": "Mo-Su 08:00-22:00",
+              "openingHours": "Mo-Su 08:00-19:00",
               "sameAs": [
                 "https://www.facebook.com/ggintervention",
                 "https://www.instagram.com/ggintervention",

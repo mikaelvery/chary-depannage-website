@@ -12,7 +12,7 @@ export default function Hero() {
             </span><br /><span className="text-3xl sm:text-4xl md:text-3xl">À METZ ET SES ALENTOURS</span> 
           </h1>
           <p className="text-base sm:text-lg mb-6 max-w-md mx-auto md:mx-0 leading-relaxed">
-            Réparation de fuite, débouchage, changement chauffe-eau, serrurerie et autres services d'urgence.
+            Dépannages urgents et multiservices à Metz : fuites, serrures bloquées, vitres cassées et petits travaux. Intervention rapide et devis en ligne gratuit.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <Link

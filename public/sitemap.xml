@@ -26,17 +26,17 @@
 
   <!-- Pages légales -->
   <url>
-    <loc>https://www.ggintervention.fr/privacy-policy</loc>
+    <loc>https://www.ggintervention.fr/politique-de-confidentialite</loc>
     <lastmod>2025-09-18</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.ggintervention.fr/legal-notice</loc>
+    <loc>https://www.ggintervention.fr/mentions-legales</loc>
     <lastmod>2025-09-18</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.ggintervention.fr/terms-of-service</loc>
+    <loc>https://www.ggintervention.fr/conditions-generales</loc>
     <lastmod>2025-09-18</lastmod>
     <priority>0.5</priority>
   </url>

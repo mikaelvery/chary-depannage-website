@@ -1,6 +1,24 @@
 import DefaultLayout from '../_components/DefaultLayout';
 import PageLayout from '../_components/PageLayout';
 
+export const metadata = {
+  title: "Mentions légales | GG Intervention Metz",
+  description:
+    "Mentions légales du site GG Intervention Metz. Retrouvez les informations sur l’éditeur, l’hébergeur, la propriété intellectuelle, l’utilisation du site et la gestion des données personnelles.",
+  robots: "noindex, follow",
+  alternates: {
+    canonical: "https://ggintervention.fr/mentions-legales",
+  },
+  openGraph: {
+    title: "Mentions légales | GG Intervention Metz",
+    description:
+      "Informations légales et coordonnées de GG Intervention Metz : éditeur, hébergeur, conditions d’utilisation et données personnelles.",
+    url: "https://ggintervention.fr/mentions-legales",
+    siteName: "GG Intervention",
+    type: "article",
+  },
+};
+
 export default function LegalNotice() {
   return (
     <DefaultLayout>

@@ -15,7 +15,7 @@ export default function Contact() {
           </h3>
           <p className="text-gray-700 text-lg leading-relaxed max-w-md mx-auto md:mx-0">
             Une question, un besoin urgent ou une demande de devis ?
-            <br /> Notre équipe est à votre écoute.
+            <br /> Guillaume est à votre écoute.
           </p>
 
           <div className="space-y-3 text-left max-w-xs mx-auto md:mx-0">

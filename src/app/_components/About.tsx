@@ -14,7 +14,7 @@ export default function About() {
           data-aos-duration="700"
           className="text-sm sm:text-base text-[#BD9F6E] font-semibold uppercase tracking-widest mb-2"
         >
-          G&G intervention • Metz • Depuis 2025
+          G&G Intervention • Metz • Depuis 2025
         </p>
 
         <h2
@@ -35,10 +35,12 @@ export default function About() {
           Guillaume Chary intervient depuis 2019 pour vos urgences de{" "}
           <strong className="text-black font-semibold">plomberie</strong>,{" "}
           <strong className="text-black font-semibold">débouchage</strong>,{" "}
-          <strong className="text-black font-semibold">serrurerie</strong> et{" "}
-          <strong className="text-black font-semibold">petit vitrage</strong> à Metz et dans les environs.
-          Disponible 6j/7, il garantit un service rapide, fiable et de qualité,
-          pour les particuliers comme les professionnels.
+          <strong className="text-black font-semibold">serrurerie</strong>,{" "}
+          <strong className="text-black font-semibold">petit vitrage</strong>{" "}
+          ainsi que le{" "}
+          <strong className="text-black font-semibold">montage et la pose de meubles</strong>{" "}
+          à Metz et dans les environs. Disponible 6j/7, il garantit un service rapide,
+          fiable et de qualité, pour les particuliers comme pour les professionnels.
         </p>
       </div>
     </section>
