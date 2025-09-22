@@ -2,12 +2,12 @@ import Link from "next/link";
 
 export default function CompanyDetails() {
   const horaires = [
-    { jour: "Lundi", horaire: "9h00 - 18h" },
-    { jour: "Mardi", horaire: "9h00 - 18h" },
-    { jour: "Mercredi", horaire: "9h00 - 18h" },
-    { jour: "Jeudi", horaire: "9h00 - 18h" },
-    { jour: "Vendredi", horaire: "9h00 - 18h" },
-    { jour: "Samedi", horaire: "Fermé" },
+    { jour: "Lundi", horaire: "8h00 - 19h" },
+    { jour: "Mardi", horaire: "8h00 - 19h" },
+    { jour: "Mercredi", horaire: "8h00 - 19h" },
+    { jour: "Jeudi", horaire: "8h00 - 19h" },
+    { jour: "Vendredi", horaire: "8h00 - 19h" },
+    { jour: "Samedi", horaire: "8h00 - 19h" },
     { jour: "Dimanche", horaire: "Fermé" },
   ];
 
