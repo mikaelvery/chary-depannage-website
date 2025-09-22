@@ -22,24 +22,43 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://ggintervention.com"),
-  title: "G&G Intervention",
-  description: "Dépannage multiservices à Metz : plomberie, chauffage, serrurerie, etc.",
+  metadataBase: new URL("https://ggintervention.fr"),
+  title:
+    "GG Intervention Metz | Plomberie, Serrurerie, Vitrerie & Dépannage multiservices",
+  description:
+    "GG Intervention (G&G Intervention) à Metz : plomberie (remplacement évier, fuite, débouchage), serrurerie (ouverture de porte, remplacement), vitrerie (simple & double vitrage), montage et pose de meubles. Intervention rapide dans un rayon de 35 km, 7j/7, devis gratuit.",
+  keywords: [
+    "GG Intervention",
+    "G&G Intervention",
+    "plombier Metz",
+    "serrurier Metz",
+    "vitrier Metz",
+    "dépannage multiservices Metz",
+    "ouverture de porte Metz",
+    "fuite plomberie Metz",
+    "remplacement vitrage Metz",
+    "pose meubles Metz",
+  ],
   openGraph: {
-    title: "G&G Intervention",
-    description: "Intervention rapide à Metz et ses alentours pour tous vos dépannages.",
-    url: "https://www.ggintervention.fr",
-    siteName: "G&G Intervention",
+    title:
+      "GG Intervention Metz | Plomberie, Serrurerie, Vitrerie & Dépannage multiservices",
+    description:
+      "Plomberie, serrurerie, vitrerie et dépannage multiservices à Metz et alentours. Intervention rapide 7j/7. Contactez GG Intervention dès maintenant !",
+    url: "https://ggintervention.fr",
+    siteName: "GG Intervention",
     images: [
       {
         url: "/logo-gg.png",
         width: 800,
         height: 600,
-        alt: "Logo G&G Intervention",
+        alt: "Logo GG Intervention Metz",
       },
     ],
     locale: "fr_FR",
     type: "website",
+  },
+  alternates: {
+    canonical: "https://ggintervention.fr",
   },
 };
 
@@ -51,8 +70,69 @@ export default function RootLayout({
   return (
     <html lang="fr" className="h-full scroll-smooth">
       <head>
+        {/* Favicon */}
         <link rel="icon" href="/logo-gg.png" type="image/png" />
-        <title>G&G Intervention</title>
+
+        {/* SEO de base */}
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="GG Intervention" />
+
+        {/* OpenGraph (Facebook, Instagram, WhatsApp, Messenger) */}
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="GG Intervention Metz | Plomberie, Serrurerie, Vitrerie & Dépannage multiservices"
+        />
+        <meta
+          property="og:description"
+          content="Plomberie, serrurerie, vitrerie et dépannage multiservices à Metz et alentours. Intervention rapide 7j/7, devis gratuit."
+        />
+        <meta property="og:url" content="https://ggintervention.fr" />
+        <meta
+          property="og:image"
+          content="https://ggintervention.fr/logo-gg.png"
+        />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="GG Intervention" />
+
+        {/* Réseaux sociaux */}
+        <meta property="article:publisher" content="https://www.facebook.com/ggintervention" />
+        <meta property="article:author" content="https://www.facebook.com/ggintervention" />
+
+        {/* JSON-LD LocalBusiness avec réseaux sociaux */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "GG Intervention",
+              "alternateName": "G&G Intervention",
+              "image": "https://ggintervention.fr/logo-gg.png",
+              "url": "https://ggintervention.fr",
+              "telephone": "+330760432122",
+              "email": "gg.intervention@gmail.com",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Metz",
+                "addressRegion": "Grand Est",
+                "addressCountry": "FR",
+              },
+              "areaServed": {
+                "@type": "Place",
+                "name": "Metz et alentours (35 km)",
+              },
+              "description":
+                "GG Intervention à Metz propose des services de plomberie, serrurerie, vitrerie et montage de meubles. Intervention rapide et fiable, devis gratuit, 7j/7.",
+              "openingHours": "Mo-Su 08:00-22:00",
+              "sameAs": [
+                "https://www.facebook.com/ggintervention",
+                "https://www.instagram.com/ggintervention",
+                "https://www.snapchat.com/add/ggintervention"
+              ],
+            }),
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} font-sans h-full bg-background text-foreground antialiased`}

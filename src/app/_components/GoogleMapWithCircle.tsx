@@ -14,7 +14,7 @@ const containerStyle = {
 export default function GoogleMapWithCircle() {
   return (
     <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!}>
-      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={8.6}>
+      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={8}>
         <Circle
           center={center}
           radius={radius}
