@@ -84,7 +84,7 @@ export default function CompanyDetails() {
             <div className="flex items-center gap-6">
               {/* Facebook */}
               <a
-                href="https://www.facebook.com/guillaume.chary"
+                href="https://www.facebook.com/ggintervention"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group transform transition-transform hover:scale-110 hover:animate-pulse-slow focus:outline-none focus:ring-2 focus:ring-[#bd9f6e] focus:ring-offset-2"
@@ -101,7 +101,7 @@ export default function CompanyDetails() {
 
               {/* Instagram */}
               <a
-                href="https://www.instagram.com/m5.gui57"
+                href="https://www.instagram.com/ggintervention"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group transform transition-transform hover:scale-110 hover:animate-pulse-slow focus:outline-none focus:ring-2 focus:ring-[#bd9f6e] focus:ring-offset-2"
@@ -110,6 +110,23 @@ export default function CompanyDetails() {
                 <img
                   src="/icons/instagram.png"
                   alt="Instagram"
+                  className="w-10 h-10 drop-shadow-lg transition-all duration-300 group-hover:filter group-hover:brightness-0 group-hover:invert group-hover:sepia group-hover:saturate-200 group-hover:hue-rotate-[305deg]"
+                />
+              </a>
+              
+              <div className="text-2xl font-light text-white select-none opacity-60">|</div>
+
+              {/* snapchat */}
+              <a
+                href="https://www.snapchat.com/ggintervention"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group transform transition-transform hover:scale-110 hover:animate-pulse-slow focus:outline-none focus:ring-2 focus:ring-[#bd9f6e] focus:ring-offset-2"
+                aria-label="Suivez-nous sur Snpachat"
+              >
+                <img
+                  src="/icons/snapchat.png"
+                  alt="Snapchat"
                   className="w-10 h-10 drop-shadow-lg transition-all duration-300 group-hover:filter group-hover:brightness-0 group-hover:invert group-hover:sepia group-hover:saturate-200 group-hover:hue-rotate-[305deg]"
                 />
               </a>

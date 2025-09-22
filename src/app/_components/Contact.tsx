@@ -21,8 +21,8 @@ export default function Contact() {
           <div className="space-y-3 text-left max-w-xs mx-auto md:mx-0">
             <div className="flex items-center gap-3 text-gray-800">
               <PhoneIcon className="w-5 h-5 text-[#BD9F6E]" />
-              <a href="tel:+33645190694" className="hover:underline">
-                +33 6 45 19 06 94
+              <a href="tel:+330760432122" className="hover:underline">
+                +33 07 60 43 21 22
               </a>
             </div>
 
