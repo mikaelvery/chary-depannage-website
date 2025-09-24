@@ -38,7 +38,7 @@ export default function Contact() {
         {/* Carte avec cercle (My Maps iframe) */}
         <div className="mt-10 md:mt-0 w-full max-w-sm mx-auto md:mx-0 rounded-xl shadow-lg overflow-hidden">
           <p className="text-[#0D1B2A] font-semibold text-base text-center mb-4">
-            Zone d'intervention autour de Metz (35 km)
+            Zone d'intervention autour de Metz (50 km)
           </p>
           <GoogleMapWithCircle />
         </div>   
