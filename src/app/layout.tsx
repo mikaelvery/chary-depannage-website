@@ -3,6 +3,7 @@ import "./globals.css";
 import LenisProvider from "./_components/LenisProvider";
 import { DevisProvider } from "../context/DevisContext";
 import ClientAOS from "./_components/ClientAOS";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -140,6 +141,7 @@ export default function RootLayout({
             <ClientAOS>{children}</ClientAOS>
           </LenisProvider>
         </DevisProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
