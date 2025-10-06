@@ -69,7 +69,7 @@ export default function RootLayout({
     <html lang="fr" className="h-full scroll-smooth">
       <head>
         {/* Favicon */}
-        <link rel="icon" href="/logo-gg.png" type="image/png" />
+        <link rel="icon" href="/public/favicon.ico" type="image/png" />
 
         {/* SEO de base */}
         <meta name="robots" content="index, follow" />
