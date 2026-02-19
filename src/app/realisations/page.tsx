@@ -1,6 +1,8 @@
-import DefaultLayout from "../_components/DefaultLayout";
-import PageLayout from "../_components/PageLayout";
+import Header from "../_components/Header";
+import Footer from "../_components/Footer";
+import CompanyDetails from "../_components/CompanyDetails";
 import RealisationsGallery from "./RealisationsGallery";
+import BackButton from "../_components/BackButton";
 
 export const metadata = {
   title: "Nos réalisations - GG Intervention Metz | Plomberie, Serrurerie & Vitrerie",
@@ -22,12 +24,36 @@ export const metadata = {
 
 export default function RealisationsPage() {
   return (
-    <DefaultLayout>
-      <PageLayout title="Nos réalisations">
-        <main className="bg-gray-100/90 px-6 pt-20 pb-10 relative">
+    <>
+      <Header />
+      <main className="bg-[#0E0E0E] min-h-screen pt-28 pb-16 px-4 md:px-6">
+        <div className="max-w-6xl mx-auto">
+
+          {/* Header section */}
+          <div className="flex items-center justify-between mb-10">
+            <div>
+              <p className="text-[#F4500A] text-xs font-semibold uppercase tracking-[0.15em] mb-3">
+                Portfolio
+              </p>
+              <h1
+                className="text-white font-black leading-[1.1] tracking-tight"
+                style={{
+                  fontFamily: "'Syne', sans-serif",
+                  fontSize: "clamp(28px, 4vw, 48px)",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                Nos réalisations
+              </h1>
+            </div>
+            <BackButton />
+          </div>
+
           <RealisationsGallery />
-        </main>
-      </PageLayout>
-    </DefaultLayout>
+        </div>
+      </main>
+      <CompanyDetails />
+      <Footer />
+    </>
   );
 }

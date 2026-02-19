@@ -37,7 +37,7 @@ export default function Header() {
             <img
               src="/logo-gg.png"
               alt="Logo G & G"
-              className="h-12 sm:h-14 object-contain"
+              className="h-8 sm:h-10 object-contain"
             />
             <div className="leading-tight">
               <p

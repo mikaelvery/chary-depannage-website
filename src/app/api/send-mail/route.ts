@@ -106,6 +106,7 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     const message = error instanceof Error ? error.message : "Erreur inconnue";
+    console.error("Nodemailer error details:", error);
     return new Response(JSON.stringify({ error: message }), { status: 500 });
   }
 }

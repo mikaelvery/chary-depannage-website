@@ -1,8 +1,8 @@
 'use client';
-
-import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useDevis } from "../../../context/DevisContext";
+import StepHeader from "../../_components/StepHeader";
 
 export default function Step10() {
   const router = useRouter();
@@ -12,95 +12,56 @@ export default function Step10() {
   const [error, setError] = useState("");
 
   const handleAccept = async () => {
-    setError("");
-    setIsSubmitting(true);
-
+    setError(""); setIsSubmitting(true);
     try {
       updateData({ accepted: true });
-
-      // Envoi à l’API
       const response = await fetch("/api/send-mail", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, accepted: true }), 
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...data, accepted: true }),
       });
-
-      if (!response.ok) {
-        throw new Error("Erreur lors de l'envoi du mail");
-      }
-
+      if (!response.ok) throw new Error("Erreur lors de l'envoi");
       setAccepted(true);
     } catch (err) {
-      if (err instanceof Error) {
-        setError(err.message);
-        console.error(err.message);
-      } else {
-        setError("Erreur inconnue");
-        console.error("Erreur inconnue", err);
-      }
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleDecline = () => {
-    alert("Vous devez accepter pour continuer.");
-  };
-
-  const handleGoHome = () => {
-    router.push("/");
+      setError(err instanceof Error ? err.message : "Erreur inconnue");
+    } finally { setIsSubmitting(false); }
   };
 
   return (
-    <main className="flex flex-col justify-center min-h-screen gap-6 px-4 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-semibold text-gray-900">10</h1>
-      <p className="text-gray-700">
-        En soumettant ce formulaire, j&apos;accepte que les informations saisies dans ce formulaire soient utilisées pour permettre de me recontacter ou dans le cadre de la relation commerciale qui découle de cette demande.&nbsp;
-        <span className="text-[#F56C6C]">*</span>
-      </p>
-      <div className="flex gap-4 mt-6">
-        <button
-          onClick={handleAccept}
-          disabled={isSubmitting || accepted}
-          className={`px-6 py-2 rounded ${
-            isSubmitting || accepted
-              ? "bg-gray-400 cursor-not-allowed"
-              : "bg-[#E6F4EA] text-[#3A7C4A] hover:bg-[#D0ECD8]"
-          } transition`}
-        >
-          J&apos;accepte
-        </button>
-
-        <button
-          onClick={handleDecline}
-          disabled={isSubmitting || accepted}
-          className={`px-6 py-2 rounded ${
-            isSubmitting || accepted
-              ? "bg-gray-400 cursor-not-allowed"
-              : "bg-[#D98C8C] text-white hover:bg-[#C07272]"
-          } transition`}
-        >
-          Je n&apos;accepte pas
-        </button>
-      </div>
-
-      {error && <p className="mt-4 text-red-600 font-semibold">{error}</p>}
-
-      {accepted && !error && (
+    <main className="flex flex-col justify-center min-h-screen gap-8 px-4 max-w-4xl mx-auto py-12">
+      <StepHeader step={10} question="Dernière étape — validation" />
+      {!accepted ? (
         <>
-          <p className="mt-4 text-[#3A7C4A] font-semibold">
-            Merci pour votre validation.
+          <p className="text-[#7A7570] text-sm max-w-xl leading-relaxed -mt-4">
+            En soumettant ce formulaire, j'accepte que les informations saisies soient utilisées
+            pour me recontacter dans le cadre de la relation commerciale.
+            <span className="text-[#F4500A] ml-1">*</span>
           </p>
-          <p className="text-[#000000] font-semibold">
-            G &amp; G INTERVENTION vous contactera au plus vite.
-          </p>
-          <button
-            onClick={handleGoHome}
-            className="mt-4 px-6 py-2 rounded bg-[#3A7C4A] text-white hover:bg-[#2e5e36] transition self-start"
-          >
-            Retour à l&apos;accueil
-          </button>
+          <div className="flex gap-3 flex-wrap">
+            <button onClick={handleAccept} disabled={isSubmitting}
+              className="px-6 py-3 rounded-xl bg-[#F4500A] hover:bg-[#FF6B2B] disabled:opacity-50 text-white font-semibold text-sm transition-all duration-200">
+              {isSubmitting ? "Envoi en cours..." : "J'accepte et j'envoie →"}
+            </button>
+            <button onClick={() => alert("Vous devez accepter pour continuer.")}
+              className="px-6 py-3 rounded-xl border border-white/10 hover:border-white/25 text-[#7A7570] hover:text-white text-sm transition-all duration-200">
+              Je refuse
+            </button>
+          </div>
+          {error && <p className="text-red-400 text-sm">{error}</p>}
         </>
+      ) : (
+        <div className="bg-[#1A1A1A] border border-white/8 rounded-2xl p-8 max-w-xl">
+          <div className="w-12 h-12 rounded-full bg-[#F4500A]/15 flex items-center justify-center text-2xl mb-5">✅</div>
+          <h2 className="text-white font-black text-xl mb-2" style={{ fontFamily: "'Syne', sans-serif" }}>
+            Demande envoyée !
+          </h2>
+          <p className="text-[#7A7570] text-sm leading-relaxed mb-6">
+            GG Intervention vous recontactera au plus vite au numéro ou email fourni.
+          </p>
+          <button onClick={() => router.push("/")}
+            className="px-6 py-3 rounded-xl bg-[#F4500A] hover:bg-[#FF6B2B] text-white font-semibold text-sm transition-all duration-200">
+            Retour à l'accueil
+          </button>
+        </div>
       )}
     </main>
   );

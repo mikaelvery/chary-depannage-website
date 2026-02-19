@@ -1,83 +1,44 @@
 'use client';
-
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useDevis } from "../../../context/DevisContext"; 
+import { useDevis } from "../../../context/DevisContext";
+import StepHeader from "../../_components/StepHeader";
 
 export default function Step6() {
   const router = useRouter();
   const { updateData } = useDevis();
-
   const [ville, setVille] = useState("");
   const [codePostal, setCodePostal] = useState("");
-
-  const isValidPostalCode = (code: string) => /^\d{5}$/.test(code.trim());
-  const isValid = ville.trim().length > 0 && isValidPostalCode(codePostal);
+  const isValid = ville.trim().length > 0 && /^\d{5}$/.test(codePostal.trim());
 
   const handleSubmit = () => {
-    if (isValid) {
-      updateData({ ville, codePostal });
-      router.push('/devis/nom');
-    }
+    if (isValid) { updateData({ ville, codePostal }); router.push('/devis/nom'); }
   };
-
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && isValid) {
-      handleSubmit();
-    }
+    if (e.key === 'Enter' && isValid) handleSubmit();
   };
 
   return (
-    <main className="flex flex-col justify-center min-h-screen gap-6 px-4 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-semibold flex items-center gap-2 self-start">
-        <span className="text-[#667663]">6</span>
-        <ArrowRight className="w-5 h-5 text-[#667663]" />
-        <span className="text-[#191919]">
-          Dans quel secteur géographique se trouve le chantier ?
-        </span>
-        <span className="text-[#F56C6C]">*</span>
-      </h1>
-
-      <label className="self-start w-full max-w-xl">
-        <span className="block mb-1 font-medium text-gray-700">Ville</span>
-        <input
-          type="text"
-          placeholder="Entrez la ville"
-          value={ville}
-          onChange={(e) => setVille(e.target.value)}
-          onKeyDown={handleKeyDown}
-          className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
-          required
-        />
-      </label>
-
-      <label className="self-start w-full max-w-xl mt-4">
-        <span className="block mb-1 font-medium text-gray-700">Code postal</span>
-        <input
-          type="text"
-          placeholder="Entrez le code postal"
-          value={codePostal}
-          onChange={(e) => setCodePostal(e.target.value)}
-          onKeyDown={handleKeyDown}
-          className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
-          required
-          maxLength={5}
-        />
-      </label>
-
-      <div className="flex items-center gap-4 self-start mt-4">
-        <button
-          className="text-sm px-4 py-2 rounded bg-[#E6F4EA] text-[#3A7C4A] hover:bg-[#D0ECD8] transition disabled:opacity-50"
-          onClick={handleSubmit}
-          disabled={!isValid}
-        >
-          Suivant
-        </button>
-        <p className="text-sm text-gray-500">
-          Maj ⇧ + Entrée ↵ pour effectuer un saut de ligne.
-        </p>
+    <main className="flex flex-col justify-center min-h-screen gap-8 px-4 max-w-4xl mx-auto py-12">
+      <StepHeader step={6} question="Dans quel secteur se trouve le chantier ?" />
+      <div className="flex flex-col gap-5 max-w-xl w-full">
+        <label>
+          <span className="block text-[#7A7570] text-xs font-medium uppercase tracking-widest mb-2">Ville</span>
+          <input type="text" placeholder="Ex : Metz" value={ville}
+            onChange={(e) => setVille(e.target.value)} onKeyDown={handleKeyDown}
+            className="w-full p-4 bg-[#1A1A1A] border border-white/8 focus:border-[#F4500A]/40 rounded-2xl text-[#F0EDE8] placeholder-[#7A7570] text-sm focus:outline-none transition-colors duration-200" />
+        </label>
+        <label>
+          <span className="block text-[#7A7570] text-xs font-medium uppercase tracking-widest mb-2">Code postal</span>
+          <input type="text" placeholder="Ex : 57000" value={codePostal} maxLength={5}
+            onChange={(e) => setCodePostal(e.target.value)} onKeyDown={handleKeyDown}
+            className="w-full p-4 bg-[#1A1A1A] border border-white/8 focus:border-[#F4500A]/40 rounded-2xl text-[#F0EDE8] placeholder-[#7A7570] text-sm focus:outline-none transition-colors duration-200" />
+        </label>
       </div>
+      <button onClick={handleSubmit} disabled={!isValid}
+        className="px-6 py-3 rounded-xl bg-[#F4500A] hover:bg-[#FF6B2B] disabled:opacity-40 disabled:cursor-not-allowed text-white font-semibold text-sm transition-all duration-200 self-start">
+        Suivant →
+      </button>
     </main>
   );
 }

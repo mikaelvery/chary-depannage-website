@@ -83,12 +83,12 @@ export default function Services() {
               <div className="absolute inset-0 bg-gradient-to-br from-[#F4500A]/6 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" />
 
               {/* Icon */}
-              <div className="w-13 h-13 rounded-[14px] bg-[#F4500A]/12 group-hover:bg-[#F4500A]/20 transition-colors duration-300 flex items-center justify-center mb-5 relative z-10"
+              <div className="w-13 h-13 rounded-[14px] bg-[#F4500A]/20 group-hover:bg-[#F4500A]/30 transition-colors duration-300 flex items-center justify-center mb-5 relative z-10"
                    style={{ width: "52px", height: "52px" }}>
                 <img
                   src={service.iconSrc}
                   alt={service.title}
-                  className="w-7 h-7 object-contain"
+                  className="w-7 h-7 object-contain brightness-0 invert opacity-80"
                   onError={(e) => {
                     // Fallback sur emoji si image manquante
                     (e.currentTarget as HTMLImageElement).style.display = "none";

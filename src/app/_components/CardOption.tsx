@@ -1,24 +1,32 @@
 import Link from "next/link";
-import { Card, CardContent } from "@/components/ui/card";
 
 interface CardOptionProps {
   title: string;
   icon?: React.ReactNode;
   href?: string;
-  onClick?: () => void; 
+  onClick?: () => void;
 }
 
 export default function CardOption({ title, icon, href, onClick }: CardOptionProps) {
   const content = (
-    <Card
+    <div
       onClick={onClick}
-      className="w-full sm:min-w-[200px] border border-border bg-card text-card-foreground shadow-md hover:shadow-lg transition-shadow rounded-2xl p-4 cursor-pointer hover:scale-[1.02]"
+      className="group w-full bg-[#1A1A1A] border border-white/8 hover:border-[#F4500A]/40 rounded-2xl p-6 cursor-pointer transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-black/40 flex flex-col items-center gap-4"
     >
-      <CardContent className="flex flex-col items-center gap-3">
-        {icon && <div className="text-3xl">{icon}</div>}
-        <h3 className="text-xl font-semibold text-center">{title}</h3>
-      </CardContent>
-    </Card>
+      {icon && (
+        <div className="w-16 h-16 rounded-xl bg-[#F4500A]/10 group-hover:bg-[#F4500A]/20 flex items-center justify-center transition-colors duration-200">
+          <div className="brightness-0 invert opacity-80">
+            {icon}
+          </div>
+        </div>
+      )}
+      <h3
+        className="text-white font-bold text-base text-center"
+        style={{ fontFamily: "'Syne', sans-serif" }}
+      >
+        {title}
+      </h3>
+    </div>
   );
 
   return href ? (
