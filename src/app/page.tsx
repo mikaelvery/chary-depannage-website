@@ -10,7 +10,6 @@ import {
   AvisGoogle
 } from './_components';
 import ScrollToTop from './_components/ScrollToTop';
-import ClientAOS from './_components/ClientAOS';
 import CTASection from './_components/CTASection';
 
 export const metadata = {
