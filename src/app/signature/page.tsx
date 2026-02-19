@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import SignatureForm from "app/_components/SignatureForm";
+import SignatureForm from "./../_components/SignatureForm";
 
 export const metadata = {
   robots: "noindex, nofollow",
