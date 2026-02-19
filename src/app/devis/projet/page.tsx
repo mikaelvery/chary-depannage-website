@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import CardOption from "app/_components/CardOption";
+import CardOption from "../../_components/CardOption";
 import { ArrowRight } from "lucide-react";
 import { useDevis } from "../../../context/DevisContext";
 
