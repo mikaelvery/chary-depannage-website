@@ -5,37 +5,29 @@ import SignatureCanvas from "react-signature-canvas";
 import { collection, query, where, getDocs, updateDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { useSearchParams } from "next/navigation";
-import PageLayout from "./PageLayout";
-import DefaultLayout from "./DefaultLayout";
+import LegalLayout from "../_components/LegalLayout";
 
 export default function SignatureForm() {
   const sigCanvas = useRef<SignatureCanvas>(null);
   const [isSigned, setIsSigned] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [checking, setChecking] = useState(true); 
+  const [checking, setChecking] = useState(true);
   const searchParams = useSearchParams();
   const numero = searchParams.get("numero");
 
   useEffect(() => {
     const checkIfAlreadySigned = async () => {
       if (!numero) return;
-
       const devisRef = collection(db, "devis");
       const q = query(devisRef, where("devisId", "==", numero));
       const querySnapshot = await getDocs(q);
-
       if (!querySnapshot.empty) {
         const docSnap = querySnapshot.docs[0];
         const data = docSnap.data();
-
-        if (data.isSigned === true) {
-          setIsSigned(true);
-        }
+        if (data.isSigned === true) setIsSigned(true);
       }
-
-      setChecking(false); // on a fini de checker
+      setChecking(false);
     };
-
     checkIfAlreadySigned();
   }, [numero]);
 
@@ -43,42 +35,30 @@ export default function SignatureForm() {
     if (!sigCanvas.current || sigCanvas.current.isEmpty()) {
       return alert("Veuillez signer avant de valider.");
     }
-
     if (!numero) {
       return alert("Aucun numéro de devis trouvé dans l'URL.");
     }
-
     setLoading(true);
-    console.log("Numéro de devis:", numero);
-
     try {
       const devisRef = collection(db, "devis");
       const q = query(devisRef, where("devisId", "==", numero));
       const querySnapshot = await getDocs(q);
-
       if (querySnapshot.empty) {
         alert("Aucun devis trouvé avec ce numéro.");
         setLoading(false);
         return;
       }
-
       const docSnap = querySnapshot.docs[0];
-      const ref = docSnap.ref;
-
       const canvas = sigCanvas.current.getCanvas();
       const signatureDataUrl = canvas.toDataURL("image/png");
-      console.log("Signature capturée :", signatureDataUrl.substring(0, 30) + "...");
-
-      await updateDoc(ref, {
+      await updateDoc(docSnap.ref, {
         isSigned: true,
         signatureUrl: signatureDataUrl,
         signedAt: serverTimestamp(),
         isRead: false,
         userId: "UUID_USER",
-        message: `Le devis ${numero} a été signé.`
+        message: `Le devis ${numero} a été signé.`,
       });
-
-      console.log("Document mis à jour avec succès.");
       setIsSigned(true);
     } catch (error: any) {
       console.error("Erreur Firestore:", error);
@@ -89,45 +69,60 @@ export default function SignatureForm() {
   };
 
   return (
-    <DefaultLayout>
-      <PageLayout title="Signature Devis">
-        <section className="space-y-6 text-gray-800 text-sm leading-relaxed max-w-3xl mx-auto">
-          {checking ? (
-            <p className="text-center">Chargement...</p>
-          ) : isSigned ? (
-            <p className="text-green-600 font-bold text-lg text-center">
-              ✅ Vous avez déjà signé ce devis. GG Intervention vous recontactera au plus vite.
-            </p>
-          ) : (
-            <>
-              <p className="text-center">Veuillez signer ci-dessous pour valider ce devis.</p>
-              <SignatureCanvas
-                ref={sigCanvas}
-                canvasProps={{
-                  className: "border border-gray-300 w-full h-40 rounded-md",
-                }}
-                backgroundColor="#fff"
-                penColor="#000"
-              />
-              <div className="flex justify-center gap-4">
-                <button
-                  className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-                  onClick={handleValidate}
-                  disabled={loading}
-                >
-                  {loading ? "Envoi..." : "Valider la signature"}
-                </button>
-                <button
-                  className="px-4 py-2 bg-gray-400 text-white rounded hover:bg-gray-500"
-                  onClick={() => sigCanvas.current?.clear()}
-                >
-                  Effacer
-                </button>
-              </div>
-            </>
-          )}
-        </section>
-      </PageLayout>
-    </DefaultLayout>
+    <LegalLayout title="Signature du devis">
+      {checking ? (
+        <div className="flex items-center justify-center py-12">
+          <div className="w-6 h-6 border-2 border-[#F4500A] border-t-transparent rounded-full animate-spin" />
+        </div>
+      ) : isSigned ? (
+        <div className="bg-[#1A1A1A] border border-white/8 rounded-2xl p-8 text-center">
+          <div className="w-14 h-14 rounded-full bg-[#F4500A]/15 flex items-center justify-center text-2xl mx-auto mb-4">
+            ✅
+          </div>
+          <h2 className="text-white font-black text-lg mb-2" style={{ fontFamily: "'Syne', sans-serif" }}>
+            Devis déjà signé
+          </h2>
+          <p className="text-[#7A7570] text-sm">
+            Vous avez déjà signé ce devis. GG Intervention vous recontactera au plus vite.
+          </p>
+        </div>
+      ) : (
+        <div className="space-y-6 max-w-xl">
+          <p className="text-[#7A7570] text-sm">
+            Signez ci-dessous pour valider le devis n°{" "}
+            <span className="text-[#F0EDE8] font-medium">{numero}</span>.
+          </p>
+
+          {/* Zone de signature */}
+          <div className="rounded-2xl overflow-hidden border border-white/10">
+            <SignatureCanvas
+              ref={sigCanvas}
+              canvasProps={{
+                className: "w-full h-48 block",
+                style: { touchAction: "none" },
+              }}
+              backgroundColor="#ffffff"
+              penColor="#000000"
+            />
+          </div>
+
+          <div className="flex gap-3">
+            <button
+              onClick={handleValidate}
+              disabled={loading}
+              className="px-6 py-3 rounded-xl bg-[#F4500A] hover:bg-[#FF6B2B] disabled:opacity-50 text-white font-semibold text-sm transition-all duration-200 cursor-pointer"
+            >
+              {loading ? "Envoi..." : "Valider la signature →"}
+            </button>
+            <button
+              onClick={() => sigCanvas.current?.clear()}
+              className="px-6 py-3 rounded-xl border border-white/10 hover:border-white/25 text-[#7A7570] hover:text-white text-sm transition-all duration-200 cursor-pointer"
+            >
+              Effacer
+            </button>
+          </div>
+        </div>
+      )}
+    </LegalLayout>
   );
 }
