@@ -11,6 +11,7 @@ import {
 } from './_components';
 import ScrollToTop from './_components/ScrollToTop';
 import ClientAOS from './_components/ClientAOS';
+import CTASection from './_components/CTASection';
 
 export const metadata = {
   title:
@@ -34,18 +35,17 @@ export const metadata = {
 export default function Home() {
   return (
     <div className="bg-white/50 text-gray-900 overflow-x-hidden">
-      <ClientAOS>
-        <Header />
-        <Hero />
-        <About />
-        <Services />
-        <RealisationsSection />
-        <Contact />
-        <AvisGoogle />
-        <CompanyDetails />
-        <Footer />
-        <ScrollToTop />
-      </ClientAOS>
+      <Header />
+      <Hero />
+      <About />
+      <Services />
+      <RealisationsSection />
+      <Contact />
+      <AvisGoogle />
+      <CTASection />
+      <CompanyDetails />
+      <Footer />
+      <ScrollToTop />
     </div>
   );
 }

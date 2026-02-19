@@ -1,130 +1,117 @@
 @import "tailwindcss";
 @import "tailwindcss/utilities";
-@import "tw-animate-css";
 
-/* @custom-variant dark (&:is(.dark *)); */
-
+/* ── Variables du thème ── */
 :root {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-montserrat: var(--font-montserrat);
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --font-syne: var(--font-syne);
+  --font-dm-sans: var(--font-dm-sans);
+
+  /* Palette */
+  --orange:       #F4500A;
+  --orange-light: #FF6B2B;
+  --dark:         #0E0E0E;
+  --dark2:        #161616;
+  --dark3:        #1F1F1F;
+  --card:         #1A1A1A;
+  --border:       rgba(255,255,255,0.08);
+  --text:         #F0EDE8;
+  --muted:        #7A7570;
 }
 
+/* ── Reset de base ── */
 html {
-  scroll-behavior: smooth;margin: 0;
+  scroll-behavior: smooth;
+}
+
+html, body {
+  margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 body {
-  font-family: var(--font-montserrat), sans-serif;
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
+  font-family: var(--font-dm-sans), var(--font-geist-sans), sans-serif;
+  background-color: var(--dark);
+  color: var(--text);
 }
 
-.dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+/* ── Titres avec Syne ── */
+h1, h2, h3, .font-syne {
+  font-family: var(--font-syne), sans-serif;
 }
 
+/* ── Keyframes ── */
+
+/* Floating cards du Hero */
+@keyframes float1 {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+
+/* Dot pulsant vert */
+@keyframes pulseGreen {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5); }
+  50%       { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
+}
+
+/* Dot pulsant orange */
+@keyframes pulseOrange {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(244, 80, 10, 0.5); }
+  50%       { box-shadow: 0 0 0 6px rgba(244, 80, 10, 0); }
+}
+
+/* Fade-slide pour les éléments entrants */
 @keyframes fade-slide-in {
-  0% {
+  from {
     opacity: 0;
     transform: translateX(-15px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateX(0);
   }
 }
 
-.animate-fade-slide-in {
-  animation-name: fade-slide-in;
-  animation-duration: 500ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-}
-
-@keyframes pulse-slow {
-  0%, 100% {
-    transform: scale(1);
+/* Fade-up général */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
     opacity: 1;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.8;
+    transform: translateY(0);
   }
 }
 
-[data-aos] {
-  max-width: 100%;
-  overflow-x: hidden;
+/* ── Classes utilitaires custom ── */
+.animate-fade-slide-in {
+  animation: fade-slide-in 500ms ease-out forwards;
 }
 
-.hover\\:animate-pulse-slow:hover {
-  animation-name: pulse-slow;
-  animation-duration: 1000ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+.animate-fade-up {
+  animation: fadeUp 0.6s ease forwards;
+}
+
+/* Classe Tailwind custom pour float */
+.animate-float1 {
+  animation: float1 4s ease-in-out infinite;
+}
+
+.animate-float2 {
+  animation: float2 5s ease-in-out infinite;
+}
+
+/* Dot pulse — utilisées par PulseDot.tsx via style inline */
+.animate-pulse-green {
+  animation: pulseGreen 2s ease-in-out infinite;
+}
+
+.animate-pulse-orange {
+  animation: pulseOrange 2s ease-in-out infinite;
 }

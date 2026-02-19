@@ -1,10 +1,9 @@
-import { Geist, Geist_Mono, Montserrat } from "next/font/google";
+import { Geist, Geist_Mono, Syne, DM_Sans } from "next/font/google";
 import "./globals.css";
-import LenisProvider from "./_components/LenisProvider";
 import { DevisProvider } from "../context/DevisContext";
-import ClientAOS from "./_components/ClientAOS";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
+// ── Fonts ──
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -15,10 +14,19 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const montserrat = Montserrat({
+// Syne pour les titres (H1, H2, logo)
+const syne = Syne({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-montserrat",
+  weight: ["700", "800"],
+  variable: "--font-syne",
+  display: "swap",
+});
+
+// DM Sans pour le corps de texte
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  variable: "--font-dm-sans",
   display: "swap",
 });
 
@@ -26,7 +34,7 @@ export const metadata = {
   metadataBase: new URL("https://ggintervention.fr"),
   title: "GG Intervention | Dépannage plomberie, serrurerie & vitrerie à Metz",
   description:
-    "GG Intervention (G&G Intervention) à Metz : dépannage multiservices rapide et fiable. Plomberie, serrurerie, vitrerie, montage et pose de meubles. Intervention 6j/7 dans un rayon de 50 km. Devis gratuit.",
+    "GG Intervention à Metz : dépannage multiservices rapide et fiable. Plomberie, serrurerie, vitrerie, montage et pose de meubles. Intervention 6j/7 dans un rayon de 50 km. Devis gratuit.",
   keywords: [
     "GG Intervention",
     "G&G Intervention",
@@ -39,10 +47,11 @@ export const metadata = {
     "remplacement vitrage Metz",
     "pose meubles Metz",
   ],
+  robots: "index, follow",
   openGraph: {
-    title: "GG Intervention | Dépannage plomberie, serrurerie & vitrerie à Metz",
+    title: "GG Intervention Metz | Plombier, Serrurier & Vitrier",
     description:
-      "Plombier, serrurier, vitrier et dépannage multiservices à Metz et alentours. Service rapide et devis gratuit 6j/7.",
+      "Plomberie, serrurerie, vitrerie et dépannage multiservices à Metz et alentours. Intervention rapide 6j/7, devis gratuit.",
     url: "https://ggintervention.fr",
     siteName: "GG Intervention",
     images: [
@@ -67,79 +76,51 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className="h-full scroll-smooth">
+    <html
+      lang="fr"
+      className={`h-full scroll-smooth ${syne.variable} ${dmSans.variable} ${geistSans.variable} ${geistMono.variable}`}
+    >
       <head>
-        {/* Favicon */}
-        <link rel="icon" href="/public/favicon.ico" type="image/png" />
-
-        {/* SEO de base */}
-        <meta name="robots" content="index, follow" />
         <meta name="author" content="GG Intervention" />
 
-        {/* OpenGraph (Facebook, Instagram, WhatsApp, Messenger) */}
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content="GG Intervention Metz | Plomberie, Serrurerie, Vitrerie & Dépannage multiservices"
-        />
-        <meta
-          property="og:description"
-          content="Plomberie, serrurerie, vitrerie et dépannage multiservices à Metz et alentours. Intervention rapide 6j/7, devis gratuit."
-        />
-        <meta property="og:url" content="https://ggintervention.fr" />
-        <meta
-          property="og:image"
-          content="https://ggintervention.fr/logo-gg.png"
-        />
-        <meta property="og:locale" content="fr_FR" />
-        <meta property="og:site_name" content="GG Intervention" />
-
-        {/* Réseaux sociaux */}
-        <meta property="article:publisher" content="https://www.facebook.com/ggintervention" />
-        <meta property="article:author" content="https://www.facebook.com/ggintervention" />
-
-        {/* JSON-LD LocalBusiness avec réseaux sociaux */}
+        {/* JSON-LD LocalBusiness */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "name": "GG Intervention",
-              "alternateName": "G&G Intervention",
-              "image": "https://ggintervention.fr/logo-gg.png",
-              "url": "https://ggintervention.fr",
-              "telephone": "+330760432122",
-              "email": "gg.intervention@gmail.com",
-              "address": {
+              name: "GG Intervention",
+              alternateName: "G&G Intervention",
+              image: "https://ggintervention.fr/logo-gg.png",
+              url: "https://ggintervention.fr",
+              telephone: "+330760432122",
+              email: "gg.intervention@gmail.com",
+              address: {
                 "@type": "PostalAddress",
-                "addressLocality": "Metz",
-                "addressRegion": "Grand Est",
-                "addressCountry": "FR",
+                addressLocality: "Metz",
+                addressRegion: "Grand Est",
+                addressCountry: "FR",
               },
-              "areaServed": {
+              areaServed: {
                 "@type": "Place",
-                "name": "Metz et alentours (50 km)",
+                name: "Metz et alentours (50 km)",
               },
-              "description":
+              description:
                 "GG Intervention à Metz propose des services de plomberie, serrurerie, vitrerie et montage de meubles. Intervention rapide et fiable, devis gratuit, 6j/7.",
-              "openingHours": "Mo-Su 08:00-19:00",
-              "sameAs": [
+              openingHours: "Mo-Sa 08:00-19:00",
+              sameAs: [
                 "https://www.facebook.com/ggintervention",
                 "https://www.instagram.com/ggintervention",
-                "https://www.snapchat.com/add/ggintervention"
+                "https://www.snapchat.com/add/ggintervention",
               ],
             }),
           }}
         />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} font-sans h-full bg-background text-foreground antialiased`}
-      >
+      <body className="h-full bg-[#0E0E0E] text-[#F0EDE8] antialiased overflow-x-hidden">
         <DevisProvider>
-          <LenisProvider>
-            <ClientAOS>{children}</ClientAOS>
-          </LenisProvider>
+          {children}
         </DevisProvider>
         <SpeedInsights />
       </body>
