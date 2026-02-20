@@ -68,7 +68,7 @@ export default function Header() {
           {/* Droite : CTA + Hamburger */}
           <div className="flex items-center gap-3">
             <Link
-              href="tel:+330760432122"
+              href="tel:0760432122"
               className="flex items-center gap-2 bg-[#F4500A] hover:bg-[#FF6B2B] text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-all duration-200"
             >
               <PulseDot color="green" />
@@ -118,7 +118,7 @@ export default function Header() {
         {/* CTAs en bas */}
         <div className="flex flex-col gap-3 mt-8">
           <Link
-            href="tel:+330760432122"
+            href="tel:0760432122"
             onClick={closeMenu}
             className="flex items-center justify-center gap-2.5 bg-[#F4500A] text-white font-bold py-4 rounded-xl text-base"
           >

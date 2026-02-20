@@ -79,7 +79,7 @@ export default function About() {
               Obtenir un devis
             </a>
             <a
-              href="tel:+330760432122"
+              href="tel:0760432122"
               className="inline-flex items-center justify-center gap-2 border border-white/10 hover:border-white/25 text-white font-medium px-6 py-4 rounded-xl text-[15px] transition-all duration-200"
             >
               Appeler Guillaume

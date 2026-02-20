@@ -94,7 +94,7 @@ export default function RootLayout({
               alternateName: "G&G Intervention",
               image: "https://ggintervention.fr/logo-gg.png",
               url: "https://ggintervention.fr",
-              telephone: "+330760432122",
+              telephone: "0760432122",
               email: "gg.intervention@gmail.com",
               address: {
                 "@type": "PostalAddress",

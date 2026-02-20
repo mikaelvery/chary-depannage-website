@@ -34,7 +34,7 @@ export default function Contact() {
 
             {/* Téléphone */}
             <a
-              href="tel:+330760432122"
+              href="tel:0760432122"
               className="flex items-center gap-4 bg-[#F4500A] hover:bg-[#FF6B2B] text-white rounded-2xl px-6 py-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-orange-500/25 group"
             >
               <div className="w-11 h-11 bg-white/15 rounded-xl flex items-center justify-center shrink-0">

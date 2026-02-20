@@ -70,7 +70,7 @@ export default function RealisationsGallery() {
         {/* CTA bas */}
         <div className="mt-10 text-center">
           <a
-            href="tel:+330760432122"
+            href="tel:0760432122"
             className="inline-flex items-center gap-2 bg-[#F4500A] hover:bg-[#FF6B2B] text-white font-semibold px-8 py-4 rounded-xl text-[15px] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-orange-500/25"
           >
             📞 Demander un devis — 07 60 43 21 22

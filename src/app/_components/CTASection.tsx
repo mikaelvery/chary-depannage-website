@@ -29,7 +29,7 @@ export default function CTASection() {
 
         <div className="flex flex-wrap justify-center gap-4">
           <a
-            href="tel:+330760432122"
+            href="tel:0760432122"
             className="inline-flex items-center gap-2 bg-white text-[#F4500A] font-bold px-8 py-4 rounded-xl text-[15px] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-2xl"
           >
             📞 07 60 43 21 22
