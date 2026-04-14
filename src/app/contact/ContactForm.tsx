@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SendHorizontal } from "lucide-react";
 
 export default function ContactForm() {
@@ -11,6 +11,15 @@ export default function ContactForm() {
     gender: "",
     message: "",
   });
+
+  // Champ honeypot (invisible pour les humains, rempli par les bots)
+  const [honeypot, setHoneypot] = useState("");
+  // Timestamp du chargement du formulaire
+  const loadTimeRef = useRef<number>(Date.now());
+
+  useEffect(() => {
+    loadTimeRef.current = Date.now();
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -27,7 +36,11 @@ export default function ContactForm() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          _hp: honeypot,
+          _t: loadTimeRef.current,
+        }),
       });
 
       if (response.ok) {
@@ -41,11 +54,13 @@ export default function ContactForm() {
           gender: "",
           message: "",
         });
+        setHoneypot("");
+        loadTimeRef.current = Date.now();
       } else {
         const errorData = await response.json();
         alert(`Erreur: ${errorData.error || "Une erreur est survenue"}`);
       }
-    } catch (error) {
+    } catch {
       alert("Erreur réseau, veuillez réessayer plus tard.");
     }
   };
@@ -55,6 +70,20 @@ export default function ContactForm() {
       onSubmit={handleSubmit}
       className="bg-white/80 backdrop-blur-md shadow-xl p-8 rounded-2xl space-y-6"
     >
+      {/* Champ honeypot : caché des humains, les bots le remplissent */}
+      <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "-9999px" }}>
+        <label htmlFor="website">Ne pas remplir</label>
+        <input
+          id="website"
+          type="text"
+          name="website"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+          autoComplete="off"
+          tabIndex={-1}
+        />
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <select
           name="gender"
@@ -116,7 +145,7 @@ export default function ContactForm() {
       </button>
 
       <p className="mt-6 text-center text-sm text-gray-600">
-        Vous pouvez aussi m’écrire directement à{" "}
+        Vous pouvez aussi m'écrire directement à{" "}
         <a href="mailto:gg.intervention@gmail.com" className="text-blue-600">
           gg.intervention@gmail.com
         </a>

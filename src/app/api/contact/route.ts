@@ -1,14 +1,84 @@
 import { NextRequest } from "next/server";
 import nodemailer from "nodemailer";
 
+// Mots-clés typiques des spammeurs (SEO, marketing, etc.)
+const SPAM_KEYWORDS = [
+  "seo", "référencement", "referencement", "marketing", "spécialiste", "specialiste",
+  "expert en", "agence", "backlink", "google ranking", "traffic", "followers",
+  "crypto", "bitcoin", "investissement", "rendement", "prêt", "pret urgent",
+  "whatsapp", "telegram", "cliquez ici", "click here", "free", "gratuit",
+  "offre limitée", "offre limitee", "promotion", "gagnez", "gagnez de l'argent",
+  "make money", "earn money", "casino", "bet", "pari",
+];
+
+// Délai minimum en ms entre le chargement du formulaire et l'envoi (3 secondes)
+const MIN_FILL_TIME_MS = 3000;
+
+function containsSpam(text: string): boolean {
+  const lower = text.toLowerCase();
+  return SPAM_KEYWORDS.some((kw) => lower.includes(kw));
+}
+
+function containsUrl(text: string): boolean {
+  return /https?:\/\//i.test(text) || /www\./i.test(text);
+}
+
+function isValidEmail(email: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+}
+
 export async function POST(request: NextRequest) {
   try {
     const data = await request.json();
 
-    // Vérification des champs obligatoires
+    // --- Protection honeypot ---
+    // Si le champ caché est rempli, c'est un bot : on répond 200 pour ne pas alerter
+    if (data._hp && data._hp.trim() !== "") {
+      return new Response(JSON.stringify({ message: "Emails envoyés avec succès." }), {
+        status: 200,
+      });
+    }
+
+    // --- Vérification du temps de remplissage ---
+    if (data._t && typeof data._t === "number") {
+      const elapsed = Date.now() - data._t;
+      if (elapsed < MIN_FILL_TIME_MS) {
+        // Réponse silencieuse pour ne pas alerter les bots
+        return new Response(JSON.stringify({ message: "Emails envoyés avec succès." }), {
+          status: 200,
+        });
+      }
+    }
+
+    // --- Vérification des champs obligatoires ---
     if (!data.email || !data.name || !data.message) {
       return new Response(
         JSON.stringify({ error: "Nom, email ou message manquant" }),
+        { status: 400 }
+      );
+    }
+
+    // --- Validation de l'email ---
+    if (!isValidEmail(data.email)) {
+      return new Response(
+        JSON.stringify({ error: "Adresse email invalide" }),
+        { status: 400 }
+      );
+    }
+
+    // --- Détection de spam dans le message et le nom ---
+    const textToCheck = `${data.name} ${data.message}`;
+    if (containsSpam(textToCheck) || containsUrl(data.message)) {
+      // Réponse silencieuse pour ne pas alerter les bots
+      return new Response(JSON.stringify({ message: "Emails envoyés avec succès." }), {
+        status: 200,
+      });
+    }
+
+    // --- Longueur maximale du message (évite les bombes texte) ---
+    if (data.message.length > 3000) {
+      return new Response(
+        JSON.stringify({ error: "Message trop long (3000 caractères maximum)" }),
         { status: 400 }
       );
     }
